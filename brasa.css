@@ -6,14 +6,32 @@
 html {
     scroll-behavior: smooth;
 }
-.nave {
-    color: aliceblue;
-    background-image: url(plano\ de\ fundo.png);
-    zoom: 100%;
-    height: 80px;
+body {
+    background-color: #11100f;
+}
+/* Inicio header */
+
+.container {
+    height: 200px;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    top: 0;
+    justify-content: space-between;
+    flex-direction: row; 
+}
+.logo img{
+    background-image: url(logo.png);
+    height: auto;
+    width: 150px;   
+}
+.nave {
+    color: rgb(255, 247, 233);
+    background-color: #11100f;
+    height: 80px;
+    width: 100%;
+    padding-bottom:200px;
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 9;
@@ -21,6 +39,75 @@ html {
 .list {
     display: flex;
     align-items: center;
-    list-style: none;
-    margin-right: 28px;
+    list-style: none;  
+    margin-top: 100px;
+}
+.list a {
+    text-decoration: none;
+    color: rgba(255, 247, 233, 0.788);
+    padding: 20px;
+    font-size: 24px;
+}
+.list a:hover {
+    color: rgb(255, 247, 233);
+    transition: 500ms;
+}
+.pedido {
+    display: flex;
+    align-items: center;
+}
+.pedido a {
+    text-decoration: none;
+    background-color: rgb(231, 71, 33);
+    font-family: "Anton", sans-serif;
+    letter-spacing: 2px;
+    color: rgb(255, 247, 233);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+a {
+    margin-top: 200px;
+    margin-right: 7px;
+}
+
+/* fim header */
+
+main {
+    color: #ff0101;
+}
+.main {
+    width: 100%;
+    background-color: #000;
+    height: calc(100vh - 80px);
+    background-image: url(main.png);
+    background-size:100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+.main h2 {
+    color: #fff;
+    font-size: 54px;
+}
+.main p {
+    font-size: 24px;
+    font-style: italic;
+    color: #1e96fc;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.call-to-action {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.9s;
+}
+.call-to-action :hover {
+    transform: scale(1.1);
 }

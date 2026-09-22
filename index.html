@@ -5,27 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="brasa.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Huninn&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <a href="#">Logo</a>
-        <nav class="nave">
-            <ul class="list">
-                <li>Início</li>
-                <li>Cardápio</li>
-                <li>Sobre nós</li>
-                <li>Combos</li>
-                <li>Contato</li>
-            </ul>
-        </nav>
-        <div>
-            <a href="#">Peça Agora</a>
-            <a href="#">Ver Pedido</a>
+    <header>
+        <div class="container">
+            
+            <nav class="nave">
+                <div class="logo">
+                    <a href="#"><img src="logo.png" alt="logo"></a>
+                </div>
+                <ul class="list">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Cardápio</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Combos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="pedido">
+                    <a href="#">Peça Agora</a>
+                    <a href="#">🛒Ver Pedido</a>
+                </div>
         </div>
+            </nav>
+        
     </header>
+
     <main>
-        <section> <!-- >>>>>>>>>>>>>>>IMAGEM<<<<<<<<<<<< nesse section-->
-            <div> <!--caixa externa desse section-->
+        <section id="inicio" class="main"> <!-- >>>>>>>>>>>>>>>IMAGEM<<<<<<<<<<<< nesse section-->
+                 <!--caixa externa desse section-->
                 <div>
                     <!--infos. pag. incial-->
                     <h2>
@@ -34,9 +45,20 @@
                     <p>
                         Carne selecionada, ingredientes frescos e muito sabor preparados na brasa.
                     </p>
+                    <a class="btn" href="#">
+                        <button class="call-to-action">
+                            Ver cardápio👇
+                        </button>
+                    </a>
+                    <a class="btn" href="#">
+                        <button class="call-to-action">
+                            Fazer pedido🛒
+                        </button>
+                    </a>
                 </div>
-            </div>
+            
         </section>
+    </main>
 
         <section>  <!-- section do cardapio >>>>>Nossa hamburgueres ou PRINCIPAIS hamburgueres<<<<< -->
             <div>  <!-- div do cardapio -->
@@ -141,7 +163,7 @@
                 <!--fotos-->
             </div>
         </section>
-    </main>
+
     <footer> <!--contato, unidades e endereços, direitos reservados --> 
         <div>
             <div>
