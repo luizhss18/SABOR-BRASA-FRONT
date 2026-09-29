@@ -9,6 +9,7 @@ html {
 body {
     background-color: #11100f;
     color: white;
+    padding-left: 5px;
 }
 /* Inicio header */
 
@@ -82,7 +83,7 @@ main {
     width: 100%;
     background-color: #000;
     height: calc(100vh - 80px);
-    background-image: url(main.png);
+    background-image: url(2fundomain.png);
     background-size:100%;
     display: flex;
     align-items: center;
@@ -115,28 +116,108 @@ main {
 .call-to-action :hover {
     transform: scale(1.1);
 }
-.cards h2{
+.titulos1 {
+    text-align: center;
+}
+.titulos1 h2{
     font-family:'DM Sans';
     font-style: normal;
-    font-weight: 700;;
+    font-weight: 500;
+    color: rgb(255, 156, 40);
+    letter-spacing: 2px;
 }
-.cards h1 {
-    padding: 10px 0px;
+.titulos1 h1 {
+    padding: 10px 0px;  
+    color: rgb(244, 234, 215);
 }
 .div-card {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;   
     justify-content: space-between;
-    gap: 25px;
+    margin: 0px 40px;
     padding: 10px 0px;
 }
-
 .ind-card {
     border: solid 1px rgb(56, 52, 52);
+    height: 450px;
     width: 300px;
+    border-radius: 7px;
+    margin-left: 25px;
 }
 .ind-card img {
     width: 100%;
     height: 220px;
     display: block;
+    border-radius: 7px;
 }   
+.conteudocard {
+    padding: 20px;
+}
+.conteudocard h2 {
+    font-family:'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    color: rgb(255, 156, 40);
+    letter-spacing: 2px;
+}
+.conteudocard p {
+    font-size: 16px;
+    color: #b9aa94;
+    line-height: 1.2;  
+    font-family:'DM Sans';
+    margin: 10px;
+}
+button {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.9s;
+}
+.addburguer{
+    display: flex;
+    justify-content: space-between;
+}
+.addburguer p{
+    color: #fff;
+}
+
+/* fim main */
+
+.titulos2 {
+    text-align: center;
+    margin: 70px 0px 40px 0px
+}
+.titulos2 h2 {
+    font-family: "Fraunces", serif;
+    color: rgb(244, 234, 215);
+}
+.titulos2 p{
+    font-family:'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    color: rgb(255, 156, 40);
+    letter-spacing: 2px;
+}
+.section2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    font-family:'DM Sans';   
+ }
+.carddoS2 {
+    border-left: solid 1px #59483a;
+    padding: 1.5rem;
+}
+.carddoS2 h3 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: rgb(244, 234, 215);
+}
+.carddoS2 p {
+    margin-top: 10px;
+    color: rgb(185, 170, 148);
+    font-weight: 400;
+}
