@@ -343,6 +343,26 @@ button {
     margin-bottom: 40px;
     padding: 0px 1.5rem;
 }
+.divfeedback h1 {
+    font-family:'DM Sans';
+    font-size: 23px;
+    font-weight: 500;
+    color: rgb(255, 156, 40);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+.divfeedback h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    color: rgb(244, 234, 215);
+}
+.divfeedback p{
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    color: rgb(255, 156, 40);
+    margin-top: 4px;
+}
+
 .feedback a{
     text-decoration: none;
     font-family:'DM Sans';
@@ -355,10 +375,6 @@ button {
     display: flex;
     align-items: center;
 }
-
-
-
-
 .fotos {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -369,4 +385,42 @@ button {
     width: 100%;
     height: 180px;
     object-fit: cover;
+}
+
+/*contato*/
+
+.contato {
+    padding: 1.5rem;
+}
+
+.divcontato {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.endereço h1{
+    font-family:'DM Sans';
+    font-weight: 500;
+    font-size: 23px;
+    color: rgb(255, 156, 40);
+    letter-spacing: 1px;
+}
+.endereço h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    color: rgb(244, 234, 215);
+}
+.endereço h3{
+    font-family:'DM Sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(255, 156, 40);
+    letter-spacing: 0.25px;
+    margin-top: 15px;
+}
+
+
+.mapa {
+    padding: 10px;
+    display: flex;
+    justify-content:center ;
 }
