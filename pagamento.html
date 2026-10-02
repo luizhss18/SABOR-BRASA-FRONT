@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="brasa.css">
+</head>
+<body>
+    <!-- SEÇÃO DE PAGAMENTO -->
+<section class="pagamento-section">
+    <div class="pagamento-container">
+        
+        <div class="titulos-pagamento">
+            <h2>Quase lá!</h2>
+            <h1>Finalize seu Pedido</h1>
+        </div>
+
+        <!-- Formulário de Pagamento -->
+        <form action="#" method="POST" class="form-pagamento">
+            
+            <!-- Dados Pessoais -->
+            <fieldset>
+                <legend>1. Dados Pessoais</legend>
+                <div class="input-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: João da Silva">
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="joao@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone / WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(31) 99999-9999">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Endereço de Entrega -->
+            <fieldset>
+                <legend>2. Entrega</legend>
+                <div class="input-group">
+                    <label for="endereco">Rua, Número e Complemento</label>
+                    <input type="text" id="endereco" name="endereco" required placeholder="Ex: Rua das Flores, 123 - Apto 4">
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" required placeholder="Centro">
+                    </div>
+                    <div class="input-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" required placeholder="00000-000">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Forma de Pagamento -->
+            <fieldset>
+                <legend>3. Pagamento</legend>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="tipo_pagamento" value="pix" checked>
+                        Pix
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="tipo_pagamento" value="cartao">
+                        Cartão de Crédito/Débito
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="tipo_pagamento" value="dinheiro">
+                        Dinheiro (na entrega)
+                    </label>
+                </div>
+
+                <!-- Simulação de campos de Cartão de Crédito -->
+                <div class="cartao-dados">
+                    <div class="input-group">
+                        <label for="numero_cartao">Número do Cartão</label>
+                        <input type="text" id="numero_cartao" name="numero_cartao" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="validade">Validade</label>
+                            <input type="text" id="validade" name="validade" placeholder="MM/AA">
+                        </div>
+                        <div class="input-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Botão Submit -->
+            <button type="submit" class="btn-finalizar">Finalizar Pedido 🍔</button>
+            
+        </form>
+    </div>
+</section>
+</body>
+</html>

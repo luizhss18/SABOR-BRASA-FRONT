@@ -65,7 +65,6 @@ body {
     letter-spacing: 2px;
     color: rgb(255, 247, 233);
     padding: 10px 20px;
-    text-decoration: none;
     border-radius: 5px;
     display: inline-block;
 }
@@ -99,13 +98,48 @@ main {
 .main p {
     font-size: 24px;
     font-style: italic;
-    color: #1e96fc;
+    color: #f8b65f;
     margin-top: 10px;
     margin-bottom: 35px;
+    margin-right: 400px;
+    border: 1px solid rgb(255, 136, 0);
+    border-radius:7px;
+    background-color: #302211c4;
+    padding: 10px;
 }
-.call-to-action {
+.botao {
+    display: flex;
+    gap: 20px;
+}
+
+.btn{
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: inline-block;
+}
+.peca {
+    background-color: rgb(255, 156, 40);
+    color: #fff;
+}
+
+.carrinho {
+    background-color: transparent;
+    border: 2px solid #685b4a;
+    color: #fff;
+}
+.btn:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+button {
     cursor: pointer;
-    background-color: #fff;
+    background-color: rgb(255, 156, 40);
     border: 0;
     padding: 14px;
     border-radius: 4px;
@@ -113,8 +147,9 @@ main {
     font-weight: bold;
     transition: 0.9s;
 }
-.call-to-action :hover {
-    transform: scale(1.1);
+a {
+    text-decoration: none;
+    color:#000
 }
 .titulos1 {
     text-align: center;
@@ -168,16 +203,6 @@ main {
     line-height: 1.2;  
     font-family:'DM Sans';
     margin: 10px;
-}
-button {
-    cursor: pointer;
-    background-color: #fff;
-    border: 0;
-    padding: 14px;
-    border-radius: 4px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.9s;
 }
 .addburguer{
     display: flex;
@@ -276,6 +301,10 @@ button {
     color: rgb(244, 234, 215);
     font-size: 1.1875rem;
     font-weight: 700;
+    margin-top: 1rem;
+}
+.cardconteudo p {
+    margin-top: 1.5rem;
 }
 .burguer {
     color: rgb(185, 170, 148);
@@ -362,7 +391,6 @@ button {
     color: rgb(255, 156, 40);
     margin-top: 4px;
 }
-
 .feedback a{
     text-decoration: none;
     font-family:'DM Sans';
@@ -392,7 +420,6 @@ button {
 .contato {
     padding: 1.5rem;
 }
-
 .divcontato {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -417,10 +444,179 @@ button {
     letter-spacing: 0.25px;
     margin-top: 15px;
 }
-
-
+.endereço p {
+    font-family:'DM Sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(185, 170, 148);
+    margin-top: 5px;
+}
 .mapa {
     padding: 10px;
+    background-color: #1d1c1a;
+    border: 1px solid #494848;
     display: flex;
     justify-content:center ;
+}
+
+
+/*teste google ia*/
+
+/* =========================================
+   ESTILOS DA PÁGINA DE PAGAMENTO
+   ========================================= */
+
+.pagamento-section {
+    padding: 6.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #11100f; 
+}
+.pagamento-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #1a1816; /* Fundo levemente mais claro que o fundo principal para destacar o card */
+    border: solid 1px rgb(56, 52, 52);
+    border-radius: 7px;
+    padding: 3rem 2rem;
+}
+.titulos-pagamento {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.titulos-pagamento h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    color: rgb(255, 156, 40);
+    letter-spacing: 2px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.titulos-pagamento h1 {
+    font-family: "Fraunces", serif;
+    color: rgb(244, 234, 215);
+    margin-top: 10px;
+    font-size: 36px;
+}
+
+.form-pagamento fieldset {
+    border: none;
+    border-top: 1px dashed rgb(56, 52, 52);
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+}
+
+.form-pagamento legend {
+    font-family: "Fraunces", serif;
+    color: rgb(244, 234, 215);
+    font-size: 1.5rem;
+    padding: 0 15px;
+    margin-left: -15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+.input-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.input-row .input-group {
+    flex: 1; /* Faz os inputs dividirem o espaço igualmente */
+}
+
+.form-pagamento label {
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(185, 170, 148);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-pagamento input[type="text"],
+.form-pagamento input[type="email"],
+.form-pagamento input[type="tel"] {
+    background-color: #11100f;
+    border: 1px solid rgb(56, 52, 52);
+    color: white;
+    padding: 14px 15px;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-pagamento input:focus {
+    border-color: rgb(255, 156, 40); /* Borda laranja ao clicar */
+    box-shadow: 0 0 5px rgba(255, 156, 40, 0.2);
+}
+
+.form-pagamento input::placeholder {
+    color: #4a453f;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(244, 234, 215);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: rgb(231, 71, 33);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.btn-finalizar {
+    width: 100%;
+    background-color: rgb(231, 71, 33);
+    color: rgb(255, 247, 233);
+    border: none;
+    padding: 18px;
+    font-family: "Anton", sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-finalizar:hover {
+    background-color: rgb(255, 156, 40); /* Muda pro tom de laranja/amarelo */
+    transform: translateY(-3px);
+}
+
+/* Responsividade do formulário para telas menores */
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .pagamento-container {
+        padding: 2rem 1.5rem;
+    }
+    .radio-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

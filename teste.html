@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasa Burger</title>
+    <link rel="stylesheet" href="teste.css">
+    
+    <!-- Fontes limpas e consolidadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- CABEÇALHO -->
+    <header class="nave">
+        <div class="container-header">
+            <div class="logo">
+                <a href="#inicio"><img src="logo.png" alt="Logo Brasa Burger"></a>
+            </div>
+            
+            <ul class="list">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#combos">Combos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            
+            <div class="pedido">
+                <a href="#cardapio" class="btn-peca">Peça Agora</a>
+                <a href="#pagamento" class="btn-carrinho">🛒 Ver Pedido</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO INÍCIO -->
+        <section id="inicio" class="main">
+            <div class="hero-content">
+                <h2>O hambúrguer artesanal que merece sua fome.</h2>
+                <p>Carne selecionada, ingredientes frescos e muito sabor preparados na brasa.</p>
+                <div class="hero-botoes">
+                    <a href="#cardapio" class="call-to-action cta-primario">Ver cardápio 👇</a>
+                    <a href="#pagamento" class="call-to-action cta-secundario">Fazer pedido 🛒</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CARDÁPIO -->
+        <section id="cardapio" class="section-pad"> 
+            <div class="titulos">
+                <p class="eyebrow">Escolha seu favorito</p>
+                <h2>Nossas melhores opções</h2>
+            </div> 
+            
+            <div class="div-card">
+                <!-- Burger 1 -->
+                <article class="ind-card"> 
+                    <img src="https://images.pexels.com/photos/1556688/pexels-photo-1556688.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hambúrguer Clássico">
+                    <div class="conteudocard">
+                        <h3>Brasa Classic</h3>
+                        <p>Pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.</p>
+                        <div class="addburguer">
+                            <p class="preco">R$ 29,90</p>
+                            <button class="btn-add">+</button>
+                        </div>
+                    </div>                      
+                </article>
+                
+                <!-- Burger 2 -->
+                <article class="ind-card"> 
+                    <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hambúrguer com Bacon">
+                    <div class="conteudocard">
+                        <h3>Bacon Fire</h3>
+                        <p>Pão brioche, hambúrguer 160g, cheddar, fatias de bacon crocante, cebola crispy e molho barbecue.</p>
+                        <div class="addburguer">
+                            <p class="preco">R$ 34,90</p>
+                            <button class="btn-add">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Burger 3 -->
+                <article class="ind-card"> 
+                    <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hambúrguer Duplo">
+                    <div class="conteudocard">
+                        <h3>Double Brasa</h3>
+                        <p>Dois hambúrgueres artesanais 160g, cheddar duplo, muito bacon e molho especial da casa.</p>
+                        <div class="addburguer">
+                            <p class="preco">R$ 39,90</p>
+                            <button class="btn-add">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Burger 4 -->
+                <article class="ind-card"> 
+                    <img src="https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hambúrguer de Frango">
+                    <div class="conteudocard">
+                        <h3>Chicken Crispy</h3>
+                        <p>Frango empanado super crocante, queijo, alface fresca, tomate e molho especial.</p>
+                        <div class="addburguer">
+                            <p class="preco">R$ 31,90</p>
+                            <button class="btn-add">+</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DIFERENCIAIS -->
+        <section class="section-pad bg-escuro">
+            <div class="titulos">
+                <p class="eyebrow">Por que escolher a gente</p>
+                <h2>A resposta é simples</h2>
+            </div>  
+            
+            <div class="section2">
+                <article class="carddoS2"> 
+                    <h3>Carne selecionada</h3>
+                    <p>Hambúrguer preparado com carne selecionada e modelado artesanalmente.</p>
+                </article>
+                <article class="carddoS2"> 
+                    <h3>Feito na brasa</h3>
+                    <p>Preparado na brasa para trazer mais sabor e aquele aroma defumado.</p>
+                </article >
+                <article class="carddoS2"> 
+                    <h3>Ingredientes frescos</h3>
+                    <p>Produtos rigorosamente selecionados para manter a qualidade dos lanches.</p>
+                </article>
+                <article class="carddoS2">
+                    <h3>Pedido rápido</h3>
+                    <p>Faça seu pedido online de forma simples e receba rapidinho.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO COMBOS -->
+        <section id="combos" class="section-pad"> 
+            <div class="titulos">
+                <p class="eyebrow">Mais sabor, melhor escolha</p>
+                <h2>Combos que valem cada mordida</h2>
+            </div>
+            
+            <div class="combos">
+                <!-- Combo 1 -->
+                <article class="combo">
+                    <img src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Combo Brasa">
+                    <div class="cardconteudo">
+                        <p class="eyebrow-small">Favorito da casa</p>
+                        <h3>Combo Brasa</h3>
+                        <p class="burguer">1 Hambúrguer + 1 Batata + 1 Refrigerante</p>
+                        <p class="ppreco">R$ 49,90</p>
+                    </div>
+                </article>
+
+                <!-- Combo 2 -->
+                <article class="combo">
+                    <img src="https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Combo Duplo">
+                    <div class="cardconteudo">
+                        <p class="eyebrow-small">Para dividir</p>
+                        <h3>Combo Duplo</h3>
+                        <p class="burguer">2 Hambúrgueres + Batata Grande + 2 Refrigerantes</p>
+                        <p class="ppreco">R$ 89,90</p>
+                    </div>
+                </article>
+            </div>
+        </section> 
+
+        <!-- SEÇÃO SOBRE NÓS -->
+        <section id="sobre" class="section-pad"> 
+            <div class="divsection4">
+                <div class="historia">
+                    <p class="eyebrow">Sobre nós</p>
+                    <h2>Quem somos</h2>
+                    <p>No Brasa Burger, acreditamos que um hambúrguer vai muito além de um simples lanche. Nosso objetivo é criar experiências memoráveis através de hambúrgueres artesanais, preparados com ingredientes frescos e de alta qualidade.</p>
+                    <p>Cada hambúrguer é cuidadosamente montado como uma peça exclusiva, pensada para encantar o paladar e conquistar os corações dos nossos clientes. Com um ambiente acolhedor e cheio de personalidade, nossa missão é transformar cada visita em um momento único.</p>
+                </div>
+                <div class="cozinheiro">
+                    <img src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cozinheiro preparando hambúrguer">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GALERIA/REDES SOCIAIS -->
+        <section class="section-pad bg-escuro"> 
+            <div class="feedback"> 
+                <div class="divfeedback">
+                    <p class="eyebrow">Acompanhe nas redes</p>
+                    <h2>Siga a Brasa Burger</h2>
+                    <p class="arroba">@brasaburger</p>     
+                </div>                    
+                <a href="#" class="btn-instagram">VER NO INSTAGRAM</a>      
+            </div>
+            
+            <div class="fotos">
+                <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=400" alt="hamburguer">
+                <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=400" alt="batata">
+                <img src="https://images.pexels.com/photos/1269025/pexels-photo-1269025.jpeg?auto=compress&cs=tinysrgb&w=400" alt="pessoas bebendo">
+                <img src="https://images.pexels.com/photos/14935009/pexels-photo-14935009.jpeg" alt="camadas do hambuguer">
+                <img src="https://images.pexels.com/photos/2491273/pexels-photo-2491273.jpeg?auto=compress&cs=tinysrgb&w=400" alt="carne na brasa">
+                <img src="https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=400" alt="coca-cola">
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contato" class="section-pad">
+            <div class="divcontato">
+                <div class="endereco">
+                    <p class="eyebrow">Venha sentir o cheiro da brasa</p>
+                    <h2>Onde estamos?</h2>
+                    
+                    <div class="info-contato">
+                        <h3>Endereço</h3>
+                        <p>Rua Exemplo, 250 — Belo Horizonte/MG</p>
+                        
+                        <h3>Horário</h3>
+                        <p>Terça a domingo das 18:00 às 23:30</p>
+                        
+                        <h3>Contato</h3>
+                        <p>WhatsApp: (31) 99999-9999<br>Instagram: @brasaburger</p>
+                    </div>
+                </div>
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.679121218829!2d-44.041103713841416!3d-19.93792229071652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa695ea5dd82e1d%3A0xca75cdd5bbcad1d6!2sSenac%20em%20Contagem!5e0!3m2!1spt-BR!2sbr!4v1790896279204!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; border-radius: 7px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" alt="mapa"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PAGAMENTO -->
+        <section id="pagamento" class="pagamento-section section-pad bg-escuro">
+            <div class="pagamento-container">
+                <div class="titulos text-center">
+                    <p class="eyebrow">Quase lá!</p>
+                    <h2>Finalize seu Pedido</h2>
+                </div>
+
+                <form action="#" method="POST" class="form-pagamento">
+                    <fieldset>
+                        <legend>1. Dados Pessoais</legend>
+                        <div class="input-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Ex: João da Silva">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required placeholder="joao@email.com">
+                            </div>
+                            <div class="input-group">
+                                <label for="telefone">Telefone / WhatsApp</label>
+                                <input type="tel" id="telefone" name="telefone" required placeholder="(31) 99999-9999">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>2. Entrega</legend>
+                        <div class="input-group">
+                            <label for="endereco-entrega">Rua, Número e Complemento</label>
+                            <input type="text" id="endereco-entrega" name="endereco" required placeholder="Ex: Rua das Flores, 123 - Apto 4">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" name="bairro" required placeholder="Centro">
+                            </div>
+                            <div class="input-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" required placeholder="00000-000">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>3. Pagamento</legend>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="tipo_pagamento" value="pix" checked> Pix</label>
+                            <label class="radio-label"><input type="radio" name="tipo_pagamento" value="cartao"> Cartão de Crédito/Débito</label>
+                            <label class="radio-label"><input type="radio" name="tipo_pagamento" value="dinheiro"> Dinheiro</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn-finalizar">Finalizar Pedido 🍔</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ FINALIZADO -->
+    <footer> 
+        <div class="footer-container">
+            <div class="footer-marca">
+                <h2>🔥 Brasa Burger</h2>
+                <p>Hambúrguer artesanal feito na brasa.</p>
+            </div>
+            
+            <ul class="footer-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#combos">Combos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Brasa Burger — Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
