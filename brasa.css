@@ -14,7 +14,7 @@ body {
 /* Inicio header */
 
 .container {
-    height: 200px;
+    height: 150px;
     width: 100%;
     display: flex;
     top: 0;
@@ -23,15 +23,16 @@ body {
 }
 .logo img{
     background-image: url(logo.png);
-    height: auto;
-    width: 150px;   
+    height: 150px;
+    width: 120px;   
+    object-fit: cover;
 }
 .nave {
     color: rgb(255, 247, 233);
     background-color: #11100f;
-    height: 80px;
+    height: 150px;
     width: 100%;
-    padding-bottom:200px;
+    padding-bottom:20px;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -42,10 +43,13 @@ body {
     display: flex;
     align-items: center;
     list-style: none;  
-    margin-top: 100px;
+    margin-top: 40px;
 }
 .list a {
     text-decoration: none;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
     color: rgba(255, 247, 233, 0.788);
     padding: 20px;
     font-size: 24px;
@@ -67,10 +71,13 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     display: inline-block;
-}
-.pedido a {
-    margin-top: 200px;
+    margin-top: 40px;
     margin-right: 7px;
+}
+.pedido a:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+    transition: 0.7s;
 }
 
 /* fim header */
@@ -92,7 +99,7 @@ main {
     font-family: "Fraunces", serif;
 }
 .main h2 {
-    color: #fff;
+    color: rgb(244, 234, 215);
     font-size: 54px;
 }
 .main p {
@@ -125,13 +132,13 @@ main {
 }
 .peca {
     background-color: rgb(255, 156, 40);
-    color: #fff;
+    color: rgb(244, 234, 215);
 }
 
 .carrinho {
-    background-color: transparent;
+    background-color:#4242426e;
     border: 2px solid #685b4a;
-    color: #fff;
+    color: rgb(244, 234, 215);
 }
 .btn:hover {
     transform: translateY(-5px);
