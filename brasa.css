@@ -424,46 +424,143 @@ a {
 
 /*contato*/
 
+.site-footer {
+    width: calc(100% + 5px);
+    margin-left: -5px;
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(231, 71, 33, 0.12), transparent 38%),
+        #171513;
+    border-top: 1px solid #3b2a20;
+}
 .contato {
-    padding: 1.5rem;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    scroll-margin-top: 150px;
+}
+.contato-cabecalho {
+    max-width: 650px;
+    margin-bottom: 2.5rem;
+}
+.footer-eyebrow {
+    color: rgb(255, 156, 40);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+.contato-cabecalho h2 {
+    margin-top: 0.65rem;
+    color: rgb(244, 234, 215);
+    font-family: "Fraunces", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+}
+.contato-cabecalho > p:last-child {
+    margin-top: 0.85rem;
+    color: rgb(185, 170, 148);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
 }
 .divcontato {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.2fr);
+    gap: 2rem;
+    align-items: stretch;
 }
-.endereço h1{
-    font-family:'DM Sans';
-    font-weight: 500;
-    font-size: 23px;
+.endereço {
+    display: grid;
+    align-content: center;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background-color: rgba(255, 255, 255, 0.025);
+    border: 1px solid #39312b;
+    border-radius: 8px;
+}
+.footer-info h3 {
+    margin-bottom: 0.45rem;
     color: rgb(255, 156, 40);
-    letter-spacing: 1px;
-}
-.endereço h2 {
-    font-family: "Fraunces", serif;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: rgb(244, 234, 215);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
-.endereço h3{
-    font-family:'DM Sans';
-    font-weight: 500;
-    font-size: 16px;
+.footer-info p,
+.footer-info address,
+.footer-social {
+    color: rgb(220, 210, 194);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.98rem;
+    font-style: normal;
+    line-height: 1.65;
+}
+.footer-social {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
     color: rgb(255, 156, 40);
-    letter-spacing: 0.25px;
-    margin-top: 15px;
+    transition: color 0.2s ease;
 }
-.endereço p {
-    font-family:'DM Sans';
-    font-weight: 400;
-    font-size: 16px;
-    color: rgb(185, 170, 148);
-    margin-top: 5px;
+.footer-social span {
+    color: rgb(220, 210, 194);
+}
+.footer-social:hover,
+.footer-social:hover span {
+    color: #fff;
+}
+.footer-social:focus-visible,
+.footer-top:focus-visible,
+.footer-brand:focus-visible {
+    outline: 2px solid rgb(255, 156, 40);
+    outline-offset: 4px;
 }
 .mapa {
-    padding: 10px;
+    min-height: 360px;
+    overflow: hidden;
     background-color: #1d1c1a;
-    border: 1px solid #494848;
+    border: 1px solid #39312b;
+    border-radius: 8px;
+}
+.mapa iframe {
+    display: block;
+    min-height: 360px;
+    border: 0;
+    filter: grayscale(0.8) contrast(0.95);
+}
+.footer-bottom {
     display: flex;
-    justify-content:center ;
+    max-width: 1240px;
+    min-height: 82px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid #39312b;
+    font-family: 'DM Sans', sans-serif;
+}
+.footer-brand {
+    color: rgb(244, 234, 215);
+    font-family: "Anton", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+}
+.footer-brand span {
+    color: rgb(255, 156, 40);
+}
+.footer-bottom p {
+    color: rgb(150, 139, 123);
+    font-size: 0.88rem;
+}
+.footer-top {
+    color: rgb(220, 210, 194);
+    font-size: 0.88rem;
+    transition: color 0.2s ease;
+}
+.footer-top:hover {
+    color: rgb(255, 156, 40);
 }
 
 
@@ -625,5 +722,31 @@ a {
     .radio-group {
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .contato {
+        padding: 3.5rem 1.25rem 2.5rem;
+    }
+    .divcontato {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .endereço {
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+    .mapa,
+    .mapa iframe {
+        min-height: 300px;
+    }
+    .footer-bottom {
+        flex-wrap: wrap;
+        padding: 1.25rem;
+    }
+    .footer-bottom p {
+        order: 1;
+        width: 100%;
     }
 }
