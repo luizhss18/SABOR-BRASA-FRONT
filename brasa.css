@@ -5,6 +5,7 @@
 }
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 body {
     background-color: #11100f;
@@ -13,48 +14,45 @@ body {
 }
 /* Inicio header */
 
-.container {
-    height: 100px;
-    width: 100%;
-    display: flex;
+header {
+    position: sticky;
     top: 0;
-    justify-content: space-between;
-    flex-direction: row; 
+    z-index: 9;
 }
-.logo img{
-    background-image: url(img/logo.png);
-    height: 150px;
-    width: 120px;   
-    margin-left: 15px;
-    object-fit: cover;
+.logo a,
+.logo img {
+    display: block;
+}
+.logo img {
+    height: 96px;
+    width: auto;
 }
 .nave {
     color: rgb(255, 247, 233);
     background-color: #11100f;
-    height: 100px;
-    width: 100%;
-    padding-bottom:20px;
+    min-height: 100px;
+    padding: 0 clamp(12px, 2vw, 24px);
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
-    z-index: 9;
+    gap: 16px;
 }
 .list {
     display: flex;
     align-items: center;
-    list-style: none;  
-    margin-top: 40px;
+    list-style: none;
+    gap: clamp(8px, 2vw, 28px);
 }
 .list a {
+    display: block;
     text-decoration: none;
     font-family: "Anton", sans-serif;
     letter-spacing: 2px;
     font-weight: lighter;
     color: rgba(255, 247, 233, 0.788);
-    padding: 20px;
-    padding-right: 40px;
+    padding: 8px 4px;
     font-size: 20px;
+    white-space: nowrap;
 }
 .list a:hover {
     color: rgb(255, 247, 233);
@@ -63,6 +61,7 @@ body {
 .pedido {
     display: flex;
     align-items: center;
+    gap: 7px;
 }
 .pedido a {
     text-decoration: none;
@@ -70,16 +69,52 @@ body {
     font-family: "Anton", sans-serif;
     letter-spacing: 2px;
     color: rgb(255, 247, 233);
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 5px;
     display: inline-block;
-    margin-top: 40px;
-    margin-right: 7px;
+    white-space: nowrap;
 }
 .pedido a:hover {
     transform: translateY(-5px);
     filter: brightness(1.1);
     transition: 0.7s;
+}
+
+@media (max-width: 900px) {
+    html {
+        scroll-padding-top: 120px;
+    }
+    .nave {
+        padding: 4px 12px 8px;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 4px 12px;
+    }
+    .logo {
+        grid-row: span 2;
+    }
+    .logo img {
+        height: 64px;
+    }
+    .list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 clamp(2px, 1vw, 8px);
+    }
+    .list a {
+        padding: 8px 3px;
+        font-size: clamp(13px, 4vw, 16px);
+        letter-spacing: 0.5px;
+    }
+    .pedido {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pedido a {
+        padding: 8px clamp(6px, 2vw, 10px);
+        font-size: clamp(12px, 3.75vw, 14px);
+        letter-spacing: 0.5px;
+    }
 }
 
 /* fim header */
@@ -176,17 +211,17 @@ a {
 }
 .div-card {
     display: flex;
-    flex-wrap: wrap;   
-    justify-content: space-between;
-    margin: 0px 40px;
-    padding: 10px 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 10px clamp(12px, 4vw, 40px);
 }
 .ind-card {
     border: solid 1px rgb(56, 52, 52);
-    height: 450px;
+    min-height: 450px;
     width: 300px;
+    max-width: 100%;
     border-radius: 7px;
-    margin-left: 25px;
 }
 .ind-card img {
     width: 100%;
