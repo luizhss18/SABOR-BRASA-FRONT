@@ -1,8 +1,8 @@
 <?php 
-$servidor = "localhost";
-$usuario = "root";
-$senha_bd = "";
-$banco = "brasa";
+$servidor = "sql210.infinityfree.com";
+$usuario = "if0_43456477";
+$senha_bd = "1234567Vidas";
+$banco = "if0_43456477_brasa";
 
 $brasa = mysqli_connect($servidor, $usuario, $senha_bd, $banco);
 
