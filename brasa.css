@@ -14,7 +14,7 @@ body {
 /* Inicio header */
 
 .container {
-    height: 150px;
+    height: 100px;
     width: 100%;
     display: flex;
     top: 0;
@@ -25,12 +25,13 @@ body {
     background-image: url(img/logo.png);
     height: 150px;
     width: 120px;   
+    margin-left: 15px;
     object-fit: cover;
 }
 .nave {
     color: rgb(255, 247, 233);
     background-color: #11100f;
-    height: 150px;
+    height: 100px;
     width: 100%;
     padding-bottom:20px;
     display: flex;
@@ -52,7 +53,8 @@ body {
     font-weight: lighter;
     color: rgba(255, 247, 233, 0.788);
     padding: 20px;
-    font-size: 24px;
+    padding-right: 40px;
+    font-size: 20px;
 }
 .list a:hover {
     color: rgb(255, 247, 233);
