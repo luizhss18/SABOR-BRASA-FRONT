@@ -124,7 +124,8 @@ header {
 /* fim header */
 
 .main {
-    min-height: clamp(30rem, 75vh, 50rem);
+    min-height: calc(100vh - 100px);
+    min-height: calc(100svh - 100px);
     background-color: #000;
     background-image: linear-gradient(90deg, rgb(0 0 0 / 78%), rgb(0 0 0 / 32%)), url(img/2fundomain.png);
     background-position: center;
@@ -839,7 +840,8 @@ a {
         scroll-padding-top: 8.5rem;
     }
     .main {
-        min-height: 0;
+        min-height: calc(100vh - 120px);
+        min-height: calc(100svh - 120px);
         padding: clamp(3rem, 12vw, 5rem) var(--espaco-lateral);
         background-position: 65% center;
     }
