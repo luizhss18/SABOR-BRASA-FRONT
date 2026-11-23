@@ -1164,9 +1164,21 @@ body.carrinho-travado { overflow: hidden; }
     border-radius: 50%;
     background: rgba(27,25,23,.94);
     color: #ff9c28;
-    font: 2rem/1 'DM Sans', sans-serif;
+    font-size: 0;
+    line-height: 0;
     cursor: pointer;
     transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.galeria-seta::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+.galeria-anterior::before {
+    transform: rotate(-135deg);
 }
 .galeria-seta:hover {
     background: #e74721;
