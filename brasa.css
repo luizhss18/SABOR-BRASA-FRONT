@@ -1044,15 +1044,6 @@ a {
     color: #f4ead7;
     font: 600 .9rem 'DM Sans', sans-serif;
 }
-.carrinho-remover {
-    border: 0;
-    padding: .3rem;
-    background: transparent;
-    color: #b9aa94;
-    font: .75rem 'DM Sans', sans-serif;
-    cursor: pointer;
-}
-.carrinho-remover:hover { color: #e74721; }
 .carrinho-rodape {
     padding: 1.25rem 1.5rem calc(1.25rem + env(safe-area-inset-bottom));
     border-top: 1px solid #39312b;

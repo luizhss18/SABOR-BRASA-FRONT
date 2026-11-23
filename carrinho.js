@@ -23,20 +23,25 @@
     overlay.setAttribute("data-carrinho-fechar", "");
     overlay.setAttribute("aria-hidden", "true");
     const drawer = document.createElement("aside");
-    drawer.className = "carrinho-gaveta";
-    drawer.setAttribute("aria-label", "Seu carrinho de compras");
-    drawer.setAttribute("aria-hidden", "true");
-    drawer.innerHTML = `
-      <header class="carrinho-topo">
-        <div><h2>Seu carrinho</h2><p><span data-carrinho-total-qtd>0</span> item(ns) selecionados</p></div>
-        <button type="button" class="carrinho-fechar" data-carrinho-fechar aria-label="Fechar carrinho">×</button>
-      </header>
-      <div class="carrinho-itens" data-carrinho-itens></div>
-      <footer class="carrinho-rodape">
-        <div class="carrinho-subtotal"><span>Subtotal</span><strong data-carrinho-subtotal>R$ 0,00</strong></div>
-        <a class="carrinho-checkout" data-carrinho-checkout href="pagamento.html">Continuar para pagamento</a>
-        <button type="button" class="carrinho-continuar" data-carrinho-fechar>Continuar comprando</button>
-      </footer>`;
+        drawer.className = "carrinho-gaveta";
+        drawer.setAttribute("aria-label", "Seu carrinho de compras");
+        drawer.setAttribute("aria-hidden", "true");
+        drawer.innerHTML = `
+        <header class="carrinho-topo">
+            <div><h2>Seu carrinho</h2><p><span data-carrinho-total-qtd>0</span> item(ns) selecionados</p></div>
+            <button type="button" class="carrinho-fechar" data-carrinho-fechar aria-label="Fechar carrinho">×</button>
+        </header>
+        <div class="carrinho-itens" data-carrinho-itens></div>
+        <footer class="carrinho-rodape">
+            <div class="carrinho-subtotal">
+            <span>Subtotal</span>
+            <strong data-carrinho-subtotal>R$ 0,00</strong>
+            </div>
+            <a class="carrinho-checkout" data-carrinho-checkout href="pagamento.html">Continuar para pagamento
+            </a>
+            <button type="button" class="carrinho-continuar" data-carrinho-fechar>Continuar comprando
+            </button>
+        </footer>`;
     document.body.append(overlay, drawer);
     renderDrawer();
   }
@@ -64,7 +69,6 @@
             <button type="button" data-carrinho-acao="menos" data-id="${esc(item.id)}" aria-label="Diminuir ${esc(item.name)}">−</button>
             <span>${item.qty}</span>
             <button type="button" data-carrinho-acao="mais" data-id="${esc(item.id)}" aria-label="Aumentar ${esc(item.name)}">+</button>
-            <button type="button" class="carrinho-remover" data-carrinho-acao="remover" data-id="${esc(item.id)}">Remover</button>
           </div>
         </div>
       </article>`).join("");
@@ -115,7 +119,6 @@
       if (!item) return;
       if (action.dataset.carrinhoAcao === "mais") item.qty += 1;
       if (action.dataset.carrinhoAcao === "menos") item.qty -= 1;
-      if (action.dataset.carrinhoAcao === "remover" || item.qty <= 0) cart = cart.filter(entry => entry.id !== item.id);
       save(); updateCount(); renderDrawer();
     }
     const checkout = event.target.closest("[data-carrinho-checkout]");
