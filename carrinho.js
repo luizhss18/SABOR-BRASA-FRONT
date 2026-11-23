@@ -202,6 +202,27 @@
           next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
         });
       };
+      let autoplay = null;
+      const startAutoplay = () => {
+        stopAutoplay();
+        autoplay = window.setInterval(() => {
+          if (document.hidden || gallery.matches(":hover") || gallery.contains(document.activeElement)) return;
+          const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+          if (atEnd) images[0].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+          else move(1);
+        }, 4500);
+      };
+      const stopAutoplay = () => {
+        if (autoplay !== null) window.clearInterval(autoplay);
+        autoplay = null;
+      };
+      gallery.addEventListener("mouseenter", stopAutoplay);
+      gallery.addEventListener("mouseleave", startAutoplay);
+      gallery.addEventListener("focusin", stopAutoplay);
+      gallery.addEventListener("focusout", startAutoplay);
+      gallery.addEventListener("touchstart", stopAutoplay, { passive: true });
+      gallery.addEventListener("touchend", startAutoplay, { passive: true });
+      startAutoplay();
       track.addEventListener("scroll", update, { passive: true });
       window.addEventListener("resize", update);
       update();
