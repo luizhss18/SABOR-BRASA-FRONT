@@ -171,7 +171,10 @@
         dot.type = "button";
         dot.className = "galeria-ponto";
         dot.setAttribute("aria-label", "Ir para imagem " + (index + 1));
-        dot.addEventListener("click", () => image.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" }));
+        dot.addEventListener("click", () => {
+          const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+          track.scrollTo({ left: maxScroll * (images.length > 1 ? index / (images.length - 1) : 0), behavior: "smooth" });
+        });
         pagination.append(dot);
         return dot;
       });
@@ -186,13 +189,9 @@
       const update = () => {
         cancelAnimationFrame(raf);
         raf = requestAnimationFrame(() => {
-          const center = track.scrollLeft + track.clientWidth / 2;
-          let nearest = 0, distance = Infinity;
-          images.forEach((image, i) => {
-            const imageCenter = image.offsetLeft + image.offsetWidth / 2;
-            const d = Math.abs(center - imageCenter);
-            if (d < distance) { distance = d; nearest = i; }
-          });
+          const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+          const progress = maxScroll ? track.scrollLeft / maxScroll : 0;
+          const nearest = Math.round(progress * (images.length - 1));
           dots.forEach((dot, i) => {
             dot.classList.toggle("ativo", i === nearest);
             if (i === nearest) dot.setAttribute("aria-current", "true");
