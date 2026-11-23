@@ -10,7 +10,10 @@ html {
 body {
     --espaco-lateral: clamp(1rem, 3vw, 2.5rem);
     --espaco-secao: clamp(2rem, 5vw, 4.5rem);
-    background-color: #11100f;
+    --cor-fundo-site: #171513;
+    --brilho-brasa: radial-gradient(ellipse at 12% 0%, rgba(231, 71, 33, 0.12), transparent 38%);
+    --fundo-site: var(--brilho-brasa), var(--cor-fundo-site);
+    background: var(--fundo-site);
     color: white;
 }
 /* Inicio header */
@@ -30,7 +33,7 @@ header {
 }
 .nave {
     color: rgb(255, 247, 233);
-    background-color: #11100f;
+    background-color: var(--cor-fundo-site);
     min-height: 100px;
     padding: 0 clamp(12px, 2vw, 24px);
     display: flex;
@@ -495,9 +498,7 @@ a {
 /*contato*/
 
 .site-footer {
-    background:
-        radial-gradient(ellipse at 12% 0%, rgba(231, 71, 33, 0.12), transparent 38%),
-        #171513;
+    background: var(--fundo-site);
     border-top: 1px solid #3b2a20;
 }
 .contato {
@@ -643,7 +644,7 @@ a {
     padding: 6.5rem 1.5rem;
     display: flex;
     justify-content: center;
-    background-color: #11100f; 
+    background: var(--fundo-site);
 }
 .pagamento-container {
     width: 100%;
