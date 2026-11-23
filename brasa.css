@@ -802,6 +802,9 @@ a {
 }
 
 @media (max-width: 700px) {
+    .divsection4 h2, h1 {
+        text-align: center;
+    }
     .divsection4,
     .divcontato {
         grid-template-columns: minmax(0, 1fr);
