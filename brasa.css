@@ -1152,8 +1152,10 @@ body.carrinho-travado { overflow: hidden; }
 .galeria-seta {
     position: absolute;
     z-index: 2;
-    top: calc(50% - 1.1rem);
-    transform: translateY(-50%);
+    top: 0;
+    bottom: 2.2rem;
+    margin-block: auto;
+    transform: none;
     width: 44px;
     height: 44px;
     display: grid;
@@ -1202,7 +1204,7 @@ body.carrinho-travado { overflow: hidden; }
 @media (max-width: 560px) {
     .galeria-carrossel { padding: 0 2.4rem 2rem; }
     .galeria-carrossel .fotos { grid-auto-columns: 100%; gap: .75rem; }
-    .galeria-seta { top: calc(50% - 1rem); width: 36px; height: 36px; font-size: 1.7rem; }
+    .galeria-seta { top: 0; bottom: 2rem; width: 36px; height: 36px; font-size: 1.7rem; }
     .galeria-anterior { left: 0; }
     .galeria-proxima { right: 0; }
 }
