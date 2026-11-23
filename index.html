@@ -28,7 +28,7 @@
             </ul>
             <div class="pedido">
                 <a href="#cardapio">Peça Agora</a>
-                <a href="pagamento.html">🛒Ver Pedido</a>
+                <a href="#cardapio" class="abrir-carrinho" data-carrinho-abrir>🛒 Carrinho <span class="carrinho-contador" data-carrinho-contador>0</span></a>
             </div>
         </nav>
     </header>
@@ -48,8 +48,8 @@
                         <a class="btn peca" href="#cardapio">
                                 Ver cardápio👇
                         </a>
-                        <a class="btn carrinho" href="#cardapio">
-                                Fazer pedido🛒
+                        <a class="btn carrinho" href="#cardapio" data-carrinho-abrir>
+                                Fazer pedido 🛒
                         </a>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             </p>
                             <div class="addburguer">
                                 <p>R$29,90</p>
-                                <a class="adicionar-pedido" href="pagamento.html" aria-label="Pedir Brasa Classic">+</a>
+                                <button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Classic" data-preco="29.90" data-imagem="https://images.pexels.com/photos/1556688/pexels-photo-1556688.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa Classic ao carrinho">+</button>
                             </div>
                         </div>                      
                     </article>
@@ -88,7 +88,7 @@
                             </p>
                             <div class="addburguer">
                                 <p>R$36,90</p>
-                                <a class="adicionar-pedido" href="pagamento.html" aria-label="Pedir Brasa Furioso">+</a>
+                                <button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Furioso" data-preco="36.90" data-imagem="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa Furioso ao carrinho">+</button>
                             </div>
                         </div>
                     </article>
@@ -104,7 +104,7 @@
                              </p>
                             <div class="addburguer">
                                 <p>R$32,90</p>
-                                <a class="adicionar-pedido" href="pagamento.html" aria-label="Pedir Brasa King">+</a>
+                                <button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa King" data-preco="32.90" data-imagem="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa King ao carrinho">+</button>
                             </div>
                         </div>
                     </article>
@@ -120,7 +120,7 @@
                             </p>
                             <div class="addburguer">
                                 <p>R$25,90</p>
-                                <a class="adicionar-pedido" href="pagamento.html" aria-label="Pedir Double Brasa">+</a>
+                                <button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Double Brasa" data-preco="25.90" data-imagem="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=400" aria-label="Adicionar Double Brasa ao carrinho">+</button>
                             </div>
                         </div>
                     </article>
@@ -167,7 +167,7 @@
                         <h2>FAVORITO DA CASA</h2>
                         <h3>Combo Brasa</h3>
                         <p class="burguer"> 2 Hambúrguer + Batata Grande + Coca-Cola ou Guaraná 2L </p>
-                        <p class="ppreço">R$ 69,90</p>
+                        <p class="ppreço">R$ 69,90</p><button class="adicionar-pedido adicionar-combo" type="button" data-carrinho-adicionar data-produto="Combo Brasa Família" data-preco="69.90" data-imagem="https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800">Adicionar ao carrinho +</button>
                     </div>
                 </article>
 
@@ -177,7 +177,7 @@
                         <h2>MELHOR PREÇO</h2>
                         <h3>Combo Brasa</h3>
                         <p class="burguer">1 Hambúrguer + Batata Média + Kuat 1,5L ou Guarapan 2L</p>
-                        <p class="ppreço">R$ 39,90</p>
+                        <p class="ppreço">R$ 39,90</p><button class="adicionar-pedido adicionar-combo" type="button" data-carrinho-adicionar data-produto="Combo Brasa Econômico" data-preco="39.90" data-imagem="https://images.pexels.com/photos/3219547/pexels-photo-3219547.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800">Adicionar ao carrinho +</button>
                     </div>
                 </article>
                 
@@ -259,5 +259,6 @@
                 <a class="footer-top" href="#inicio">Voltar ao topo ↑</a>
             </div>        
         </footer>
+    <script src="carrinho.js" defer></script>
 </body>
 </html>
