@@ -152,3 +152,61 @@
     renderPaymentSummary();
   }
 })();
+
+/* Carrossel da galeria de fotos: setas, paginação e gesto de arrastar */
+(() => {
+  const initGallery = () => {
+    document.querySelectorAll("[data-galeria-carrossel]").forEach(gallery => {
+      if (gallery.dataset.iniciado) return;
+      gallery.dataset.iniciado = "true";
+      const track = gallery.querySelector("[data-galeria-trilho]");
+      const prev = gallery.querySelector("[data-galeria-anterior]");
+      const next = gallery.querySelector("[data-galeria-proxima]");
+      const pagination = gallery.querySelector("[data-galeria-paginacao]");
+      const images = Array.from(track.querySelectorAll("img"));
+      if (!track || !images.length) return;
+
+      const dots = images.map((image, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "galeria-ponto";
+        dot.setAttribute("aria-label", "Ir para imagem " + (index + 1));
+        dot.addEventListener("click", () => image.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" }));
+        pagination.append(dot);
+        return dot;
+      });
+      const move = direction => {
+        const step = images[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
+        track.scrollBy({ left: direction * step, behavior: "smooth" });
+      };
+      prev.addEventListener("click", () => move(-1));
+      next.addEventListener("click", () => move(1));
+
+      let raf = 0;
+      const update = () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const center = track.scrollLeft + track.clientWidth / 2;
+          let nearest = 0, distance = Infinity;
+          images.forEach((image, i) => {
+            const imageCenter = image.offsetLeft + image.offsetWidth / 2;
+            const d = Math.abs(center - imageCenter);
+            if (d < distance) { distance = d; nearest = i; }
+          });
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("ativo", i === nearest);
+            if (i === nearest) dot.setAttribute("aria-current", "true");
+            else dot.removeAttribute("aria-current");
+          });
+          prev.disabled = track.scrollLeft <= 2;
+          next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        });
+      };
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    });
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initGallery);
+  else initGallery();
+})();
