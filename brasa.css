@@ -23,6 +23,23 @@ header {
     top: 0;
     z-index: 9;
 }
+
+.nave {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+    padding: 0 clamp(16px, 2vw, 32px);
+    gap: 16px;
+    color: rgb(255, 247, 233);
+    background-color: var(--cor-fundo-site);
+}
+
+.logo {
+    justify-self: start;
+    min-width: 0;
+}
 .logo a,
 .logo img {
     display: block;
@@ -30,94 +47,180 @@ header {
 .logo img {
     height: 96px;
     width: auto;
+    max-width: 100%;
 }
-.nave {
-    color: rgb(255, 247, 233);
-    background-color: var(--cor-fundo-site);
-    min-height: 100px;
-    padding: 0 clamp(12px, 2vw, 24px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
+
 .list {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
     list-style: none;
-    gap: clamp(8px, 2vw, 28px);
+    gap: clamp(12px, 1.6vw, 28px);
+    margin: 0;
+    padding: 0;
+    min-width: 0;
 }
 .list a {
     display: block;
     text-decoration: none;
     font-family: "Anton", sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: clamp(.3px, .08vw, 1.5px);
     font-weight: lighter;
     color: rgba(255, 247, 233, 0.788);
-    padding: 8px 4px;
-    font-size: 20px;
+    padding: 8px 3px;
+    font-size: clamp(16px, 1.15vw, 20px);
     white-space: nowrap;
 }
 .list a:hover {
     color: rgb(255, 247, 233);
-    transition: 500ms;
+    transition: color 250ms ease;
 }
+
 .pedido {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    justify-self: end;
+    flex-wrap: nowrap;
+    min-width: 0;
     gap: 7px;
 }
 .pedido a {
     text-decoration: none;
     background-color: rgb(231, 71, 33);
     font-family: "Anton", sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: clamp(.3px, .08vw, 1.5px);
     color: rgb(255, 247, 233);
-    padding: 10px 16px;
+    padding: 10px clamp(10px, 1vw, 16px);
     border-radius: 5px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
+    font-size: clamp(14px, 1vw, 16px);
 }
 .pedido a:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     filter: brightness(1.1);
-    transition: 0.7s;
+    transition: 0.25s ease;
 }
 
-@media (max-width: 900px) {
+/* Header em duas linhas para telas intermediárias */
+@media (max-width: 1150px) {
     html {
-        scroll-padding-top: 120px;
+        scroll-padding-top: 150px;
     }
     .nave {
-        padding: 4px 12px 8px;
-        display: grid;
         grid-template-columns: auto minmax(0, 1fr);
-        gap: 4px 12px;
+        grid-template-rows: auto auto;
+        gap: 4px 16px;
+        padding: 8px 16px 12px;
     }
     .logo {
-        grid-row: span 2;
+        grid-column: 1;
+        grid-row: 1;
     }
     .logo img {
         height: 64px;
     }
     .list {
-        flex-wrap: wrap;
+        grid-column: 2;
+        grid-row: 1;
         justify-content: center;
-        gap: 0 clamp(2px, 1vw, 8px);
+        flex-wrap: wrap;
+        gap: 2px clamp(8px, 1.4vw, 16px);
     }
     .list a {
-        padding: 8px 3px;
-        font-size: clamp(13px, 4vw, 16px);
-        letter-spacing: 0.5px;
+        font-size: clamp(14px, 1.8vw, 18px);
+        letter-spacing: .4px;
+        padding: 6px 2px;
     }
     .pedido {
-        flex-wrap: wrap;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: center;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
     }
     .pedido a {
-        padding: 8px clamp(6px, 2vw, 10px);
-        font-size: clamp(12px, 3.75vw, 14px);
-        letter-spacing: 0.5px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Header compacto em celulares */
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 180px;
+    }
+    .nave {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 8px;
+        padding: 8px 12px 12px;
+    }
+    .logo {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+    }
+    .logo img {
+        height: 58px;
+    }
+    .list {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px clamp(8px, 2.5vw, 14px);
+    }
+    .list a {
+        font-size: clamp(13px, 3.5vw, 16px);
+        letter-spacing: .3px;
+        padding: 5px 2px;
+    }
+    .pedido {
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+        justify-self: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .pedido a {
+        padding: 8px 12px;
+        font-size: 13px;
+        letter-spacing: .4px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nave {
+        padding-inline: 8px;
+    }
+    .list {
+        gap: 4px 8px;
+    }
+    .list a {
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+    .pedido {
+        gap: 5px;
+    }
+    .pedido a {
+        padding: 7px 9px;
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+    .botao-tema {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
     }
 }
 
@@ -806,7 +909,8 @@ a {
     .titulos3 h3 {
         text-align: center;
     }
-    .divsection4 h2, h1 {
+    .divsection4 h2,
+    .divsection4 h1 {
         text-align: center;
     }
     .divsection4,
@@ -843,8 +947,8 @@ a {
         scroll-padding-top: 8.5rem;
     }
     .main {
-        min-height: calc(100vh - 120px);
-        min-height: calc(100svh - 120px);
+        min-height: calc(100vh - 180px);
+        min-height: calc(100svh - 180px);
         padding: clamp(3rem, 12vw, 5rem) var(--espaco-lateral);
         background-position: 65% center;
     }
