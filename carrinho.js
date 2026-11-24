@@ -117,9 +117,19 @@
     if (action) {
       const item = cart.find(entry => entry.id === action.dataset.id);
       if (!item) return;
-      if (action.dataset.carrinhoAcao === "mais") item.qty += 1;
-      if (action.dataset.carrinhoAcao === "menos") item.qty -= 1;
-      save(); updateCount(); renderDrawer();
+      if (action.dataset.carrinhoAcao === "mais") {
+        item.qty += 1;
+      }
+      if (action.dataset.carrinhoAcao === "menos") {
+        if (item.qty <= 1) {
+          cart = cart.filter(entry => entry.id !== item.id);
+        } else {
+          item.qty -= 1;
+        }
+      }
+      save();
+      updateCount();
+      renderDrawer();
     }
     const checkout = event.target.closest("[data-carrinho-checkout]");
     if (checkout && !cart.length) { event.preventDefault(); }
