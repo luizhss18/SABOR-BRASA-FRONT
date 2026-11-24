@@ -101,7 +101,7 @@ function renderDrawer() {
           <button type="button" data-carrinho-acao="mais" data-id="${esc(item.id)}" aria-label="Aumentar ${esc(item.name)}">+</button>
         </div>
       </div>
-    </article>`).join("") + (hasMainProduct ? newRenderComplementSuggestions() : "");
+    </article>`).join("") + (hasMainProduct ? renderComplementSuggestions() : "");
 }
 function addComplement(id) {
   const product = COMPLEMENTS.find(item => item.id === id);
