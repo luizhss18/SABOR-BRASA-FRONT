@@ -328,14 +328,13 @@ a {
     padding: 10px 0px;  
     color: rgb(244, 234, 215);
 }
-/* Carrossel de hambúrgueres */
+/* Carrossel de hambúrgueres — setas alinhadas às imagens */
 .cardapio-carrossel {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: block;
     max-width: 1440px;
     margin-inline: auto;
+    padding-inline: 54px;
 }
 
 .div-card {
@@ -352,10 +351,9 @@ a {
     scroll-behavior: smooth;
     scrollbar-width: none;
     overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
 }
-.div-card::-webkit-scrollbar {
-    display: none;
-}
+.div-card::-webkit-scrollbar { display: none; }
 
 .ind-card {
     border: solid 1px rgb(56, 52, 52);
@@ -370,11 +368,16 @@ a {
 }
 
 .cardapio-seta {
+    position: absolute;
+    z-index: 2;
+    top: clamp(90px, 15vw, 115px);
+    transform: translateY(-50%);
     display: grid;
     place-items: center;
-    flex: 0 0 42px;
+    flex: none;
     width: 42px;
     height: 42px;
+    padding: 0;
     border: 1px solid rgba(255, 156, 40, .45);
     border-radius: 50%;
     background: #26211c;
@@ -382,8 +385,9 @@ a {
     font: 32px/1 "DM Sans", sans-serif;
     cursor: pointer;
     transition: background .2s ease, color .2s ease, opacity .2s ease;
-    z-index: 1;
 }
+.cardapio-anterior { left: 4px; }
+.cardapio-proxima { right: 4px; }
 .cardapio-seta:hover:not(:disabled) {
     background: #e74721;
     color: #fff7e9;
@@ -392,6 +396,7 @@ a {
     opacity: .28;
     cursor: default;
 }
+
 .cardapio-paginacao {
     display: flex;
     justify-content: center;
@@ -404,7 +409,7 @@ a {
     height: 8px;
     padding: 0;
     border: 0;
-    border-radius: 50%;
+    border-radius: 99px;
     background: #6f6254;
     cursor: pointer;
     transition: width .2s ease, background .2s ease;
@@ -1560,25 +1565,31 @@ body.tema-claro .galeria-ponto.ativo { background: #e74721; }
 }
 @media (max-width: 600px) {
     .cardapio-carrossel {
-        gap: 5px;
+        padding-inline: 34px;
     }
     .cardapio-seta {
-        flex-basis: 28px;
+        top: clamp(86px, 31vw, 125px);
         width: 28px;
         height: 28px;
         font-size: 23px;
     }
+    .cardapio-anterior { left: 2px; }
+    .cardapio-proxima { right: 2px; }
+    .div-card {
+        gap: 14px;
+        padding-inline: 1px;
+    }
     .ind-card {
-        flex-basis: calc(100% - 2px);
-        width: calc(100% - 2px);
+        flex-basis: 100%;
+        width: 100%;
     }
 }
 @media (max-width: 360px) {
     .cardapio-carrossel {
-        gap: 3px;
+        padding-inline: 30px;
     }
     .cardapio-seta {
-        flex-basis: 24px;
+        top: clamp(82px, 31vw, 112px);
         width: 24px;
         height: 24px;
         font-size: 20px;
@@ -1587,7 +1598,7 @@ body.tema-claro .galeria-ponto.ativo { background: #e74721; }
         gap: 10px;
     }
     .ind-card {
-        flex-basis: calc(100% - 2px);
-        width: calc(100% - 2px);
+        flex-basis: 100%;
+        width: 100%;
     }
 }
