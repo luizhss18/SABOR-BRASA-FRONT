@@ -334,11 +334,11 @@
       };
 
       const move = direction => {
-        const currentIndex = Math.round(getProgress() * (cards.length - 1));
-        const targetIndex = Math.max(0, Math.min(cards.length - 1, currentIndex + direction));
         const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-        const targetProgress = cards.length > 1 ? targetIndex / (cards.length - 1) : 0;
-        track.scrollTo({ left: maxScroll * targetProgress, behavior: "smooth" });
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0") || 0;
+        const cardStep = cards[0].getBoundingClientRect().width + gap;
+        const targetLeft = Math.max(0, Math.min(maxScroll, track.scrollLeft + direction * cardStep));
+        track.scrollTo({ left: targetLeft, behavior: "smooth" });
       };
 
       previous.addEventListener("click", event => {
