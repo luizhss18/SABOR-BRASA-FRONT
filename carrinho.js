@@ -275,9 +275,10 @@
 })();
 
 
-/* Carrossel do cardápio */
+/* Carrossel do cardápio — navegação horizontal sem mover a página */
 (() => {
   "use strict";
+
   const initMenuCarousel = () => {
     document.querySelectorAll("[data-cardapio-carrossel]").forEach(carousel => {
       if (carousel.dataset.iniciado === "true") return;
@@ -287,52 +288,68 @@
       const previous = carousel.querySelector("[data-cardapio-anterior]");
       const next = carousel.querySelector("[data-cardapio-proxima]");
       const pagination = carousel.parentElement.querySelector("[data-cardapio-paginacao]");
+
+      if (!track || !previous || !next || !pagination) return;
+
       const cards = Array.from(track.querySelectorAll(".ind-card"));
-      if (!track || !cards.length || !previous || !next || !pagination) return;
+      if (!cards.length) return;
 
       const dots = cards.map((card, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "cardapio-ponto";
         dot.setAttribute("aria-label", "Mostrar hambúrguer " + (index + 1));
-        dot.addEventListener("click", () => {
-          track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+        dot.addEventListener("click", event => {
+          event.preventDefault();
+          const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+          const targetProgress = cards.length > 1 ? index / (cards.length - 1) : 0;
+          track.scrollTo({ left: maxScroll * targetProgress, behavior: "smooth" });
         });
         pagination.append(dot);
         return dot;
       });
 
-      const getCurrentIndex = () => {
-        let current = 0;
-        const left = track.scrollLeft;
-        cards.forEach((card, index) => {
-          if (card.offsetLeft - track.offsetLeft <= left + 8) current = index;
-        });
-        return current;
+      const getProgress = () => {
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        return maxScroll ? Math.min(1, Math.max(0, track.scrollLeft / maxScroll)) : 0;
       };
 
+      let raf = 0;
       const update = () => {
-        const index = getCurrentIndex();
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("ativo", i === index);
-          if (i === index) dot.setAttribute("aria-current", "true");
-          else dot.removeAttribute("aria-current");
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const progress = getProgress();
+          const activeIndex = Math.round(progress * (dots.length - 1));
+
+          dots.forEach((dot, index) => {
+            const active = index === activeIndex;
+            dot.classList.toggle("ativo", active);
+            if (active) dot.setAttribute("aria-current", "true");
+            else dot.removeAttribute("aria-current");
+          });
+
+          previous.disabled = track.scrollLeft <= 2;
+          next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
         });
-        previous.disabled = track.scrollLeft <= 2;
-        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
       };
 
       const move = direction => {
-        const index = getCurrentIndex();
-        const targetIndex = Math.max(0, Math.min(cards.length - 1, index + direction));
-        track.scrollTo({
-          left: cards[targetIndex].offsetLeft - track.offsetLeft,
-          behavior: "smooth"
-        });
+        const currentIndex = Math.round(getProgress() * (cards.length - 1));
+        const targetIndex = Math.max(0, Math.min(cards.length - 1, currentIndex + direction));
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        const targetProgress = cards.length > 1 ? targetIndex / (cards.length - 1) : 0;
+        track.scrollTo({ left: maxScroll * targetProgress, behavior: "smooth" });
       };
 
-      previous.addEventListener("click", () => move(-1));
-      next.addEventListener("click", () => move(1));
+      previous.addEventListener("click", event => {
+        event.preventDefault();
+        move(-1);
+      });
+      next.addEventListener("click", event => {
+        event.preventDefault();
+        move(1);
+      });
+
       track.addEventListener("scroll", update, { passive: true });
       window.addEventListener("resize", update);
       update();
