@@ -230,3 +230,36 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initGallery);
   else initGallery();
 })();
+/* Alternância de tema claro/escuro */
+(() => {
+  "use strict";
+  const KEY = "brasaBurgerTema";
+  const body = document.body;
+  const buttons = () => document.querySelectorAll("[data-tema-toggle]");
+  const getSavedTheme = () => {
+    try {
+      const saved = localStorage.getItem(KEY);
+      return saved === "claro" || saved === "escuro" ? saved : "escuro";
+    } catch {
+      return "escuro";
+    }
+  };
+  const applyTheme = theme => {
+    const light = theme === "claro";
+    body.classList.toggle("tema-claro", light);
+    buttons().forEach(button => {
+      const icon = button.querySelector("[data-tema-icone]");
+      if (icon) icon.textContent = light ? "☀" : "☾";
+      const label = light ? "Ativar modo escuro" : "Ativar modo claro";
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
+    });
+  };
+  let theme = getSavedTheme();
+  applyTheme(theme);
+  buttons().forEach(button => button.addEventListener("click", () => {
+    theme = theme === "claro" ? "escuro" : "claro";
+    applyTheme(theme);
+    try { localStorage.setItem(KEY, theme); } catch {}
+  }));
+})();
