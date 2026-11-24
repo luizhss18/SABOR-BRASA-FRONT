@@ -273,3 +273,75 @@
     try { localStorage.setItem(KEY, theme); } catch {}
   }));
 })();
+
+
+/* Carrossel do cardápio */
+(() => {
+  "use strict";
+  const initMenuCarousel = () => {
+    document.querySelectorAll("[data-cardapio-carrossel]").forEach(carousel => {
+      if (carousel.dataset.iniciado === "true") return;
+      carousel.dataset.iniciado = "true";
+
+      const track = carousel.querySelector("[data-cardapio-trilho]");
+      const previous = carousel.querySelector("[data-cardapio-anterior]");
+      const next = carousel.querySelector("[data-cardapio-proxima]");
+      const pagination = carousel.parentElement.querySelector("[data-cardapio-paginacao]");
+      const cards = Array.from(track.querySelectorAll(".ind-card"));
+      if (!track || !cards.length || !previous || !next || !pagination) return;
+
+      const dots = cards.map((card, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "cardapio-ponto";
+        dot.setAttribute("aria-label", "Mostrar hambúrguer " + (index + 1));
+        dot.addEventListener("click", () => {
+          track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+        });
+        pagination.append(dot);
+        return dot;
+      });
+
+      const getCurrentIndex = () => {
+        let current = 0;
+        const left = track.scrollLeft;
+        cards.forEach((card, index) => {
+          if (card.offsetLeft - track.offsetLeft <= left + 8) current = index;
+        });
+        return current;
+      };
+
+      const update = () => {
+        const index = getCurrentIndex();
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("ativo", i === index);
+          if (i === index) dot.setAttribute("aria-current", "true");
+          else dot.removeAttribute("aria-current");
+        });
+        previous.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      };
+
+      const move = direction => {
+        const index = getCurrentIndex();
+        const targetIndex = Math.max(0, Math.min(cards.length - 1, index + direction));
+        track.scrollTo({
+          left: cards[targetIndex].offsetLeft - track.offsetLeft,
+          behavior: "smooth"
+        });
+      };
+
+      previous.addEventListener("click", () => move(-1));
+      next.addEventListener("click", () => move(1));
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMenuCarousel);
+  } else {
+    initMenuCarousel();
+  }
+})();
