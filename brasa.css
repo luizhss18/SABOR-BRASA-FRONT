@@ -127,12 +127,12 @@ header {
     min-height: calc(100vh - 100px);
     min-height: calc(100svh - 100px);
     background-color: #000;
-    background-image: linear-gradient(90deg, rgb(0 0 0 / 78%), rgb(0 0 0 / 32%)), url(img/teste.png);
+    background-image: linear-gradient(90deg, rgb(0 0 0 / 78%), rgb(0 0 0 / 32%)), url(img/teste.WebP);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    align-items: center;
+    align-items: center;    
     padding: var(--espaco-secao) clamp(1rem, 8vw, 9rem);
 }
 .main > div {
@@ -1284,7 +1284,7 @@ body.tema-claro .nave { color: #29221b; }
 body.tema-claro .list a { color: #5e5143; }
 body.tema-claro .list a:hover { color: #e74721; }
 body.tema-claro .main {
-    background-image: linear-gradient(90deg, rgb(25 18 12 / 68%), rgb(25 18 12 / 25%)), url(img/teste.png);
+    background-image: linear-gradient(90deg, rgb(25 18 12 / 68%), rgb(25 18 12 / 25%)), url(img/teste.WebP);
 }
 body.tema-claro .main h2 { color: #fff4df; }
 body.tema-claro .main p { color: #ffe0a8; }
