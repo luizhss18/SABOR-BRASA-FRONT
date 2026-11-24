@@ -207,7 +207,7 @@
         autoplay = window.setInterval(() => {
           if (document.hidden || gallery.matches(":hover") || gallery.contains(document.activeElement)) return;
           const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-          if (atEnd) images[0].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+          if (atEnd) track.scrollTo({ left: 0, behavior: "smooth" });
           else move(1);
         }, 4500);
       };
