@@ -328,20 +328,91 @@ a {
     padding: 10px 0px;  
     color: rgb(244, 234, 215);
 }
+/* Carrossel de hambúrgueres */
+.cardapio-carrossel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
 .div-card {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 24px;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 2px 16px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
 }
+.div-card::-webkit-scrollbar {
+    display: none;
+}
+
 .ind-card {
     border: solid 1px rgb(56, 52, 52);
-    width: min(300px, calc((100% - 24px) / 2));
+    flex: 0 0 300px;
+    width: 300px;
     max-width: 100%;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.cardapio-seta {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 156, 40, .45);
+    border-radius: 50%;
+    background: #26211c;
+    color: #ff9c28;
+    font: 32px/1 "DM Sans", sans-serif;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, opacity .2s ease;
+    z-index: 1;
+}
+.cardapio-seta:hover:not(:disabled) {
+    background: #e74721;
+    color: #fff7e9;
+}
+.cardapio-seta:disabled {
+    opacity: .28;
+    cursor: default;
+}
+.cardapio-paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 10px auto 0;
+}
+.cardapio-ponto {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #6f6254;
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+}
+.cardapio-ponto.ativo {
+    width: 22px;
+    border-radius: 8px;
+    background: #ff9c28;
 }
 .ind-card img {
     width: 100%;
@@ -965,8 +1036,25 @@ a {
         font-size: 1rem;
         text-align: center;
     }
+    .cardapio-carrossel {
+        gap: 6px;
+    }
+    .div-card {
+        gap: 14px;
+        padding-inline: 1px;
+    }
     .ind-card {
-        width: 100%;
+        flex-basis: min(82vw, 320px);
+        width: min(82vw, 320px);
+    }
+    .cardapio-seta {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+        font-size: 26px;
+    }
+    .cardapio-paginacao {
+        gap: 6px;
     }
     .conteudocard {
         text-align: center;
@@ -1457,3 +1545,49 @@ body.tema-claro .galeria-seta:hover { background: #e74721; color: #fff9f0; borde
 body.tema-claro .galeria-ponto { background: #c8b59f; }
 body.tema-claro .galeria-ponto.ativo { background: #e74721; }
 .pagamento-tema { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+
+
+/* Ajustes do carrossel em tablets e celulares estreitos */
+@media (max-width: 900px) {
+    .cardapio-carrossel {
+        gap: 8px;
+    }
+    .cardapio-seta {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+}
+@media (max-width: 600px) {
+    .cardapio-carrossel {
+        gap: 5px;
+    }
+    .cardapio-seta {
+        flex-basis: 28px;
+        width: 28px;
+        height: 28px;
+        font-size: 23px;
+    }
+    .ind-card {
+        flex-basis: calc(100% - 2px);
+        width: calc(100% - 2px);
+    }
+}
+@media (max-width: 360px) {
+    .cardapio-carrossel {
+        gap: 3px;
+    }
+    .cardapio-seta {
+        flex-basis: 24px;
+        width: 24px;
+        height: 24px;
+        font-size: 20px;
+    }
+    .div-card {
+        gap: 10px;
+    }
+    .ind-card {
+        flex-basis: calc(100% - 2px);
+        width: calc(100% - 2px);
+    }
+}
