@@ -15,6 +15,14 @@
   const esc = value => String(value).replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch]));
   const countEls = () => document.querySelectorAll("[data-carrinho-contador]");
   const updateCount = () => countEls().forEach(el => el.textContent = totalQty());
+  const COMPLEMENTS = [
+    { id: "extra-coca-cola", name: "Coca-Cola lata 350 ml", price: 6.90, kind: "complemento", category: "bebida", icon: "🥤", description: "Lata geladinha" },
+    { id: "extra-guarana", name: "Guaraná Antarctica 350 ml", price: 6.50, kind: "complemento", category: "bebida", icon: "🥤", description: "Refrescante" },
+    { id: "extra-agua", name: "Água mineral 500 ml", price: 4.00, kind: "complemento", category: "bebida", icon: "💧", description: "Com ou sem gás" },
+    { id: "extra-maionese-alho", name: "Maionese de alho", price: 2.50, kind: "complemento", category: "molho", icon: "🧄", description: "Pote de 30 ml" },
+    { id: "extra-bbq-casa", name: "BBQ da casa", price: 2.50, kind: "complemento", category: "molho", icon: "🍯", description: "Pote de 30 ml" },
+    { id: "extra-molho-picante", name: "Molho picante", price: 2.50, kind: "complemento", category: "molho", icon: "🌶️", description: "Pote de 30 ml" }
+  ];
 
   function setupDrawer() {
     if (document.querySelector(".carrinho-gaveta")) return;
@@ -46,33 +54,65 @@
     renderDrawer();
   }
 
-  function renderDrawer() {
-    const drawer = document.querySelector(".carrinho-gaveta");
-    if (!drawer) return;
-    const items = drawer.querySelector("[data-carrinho-itens]");
-    drawer.querySelector("[data-carrinho-total-qtd]").textContent = totalQty();
-    drawer.querySelector("[data-carrinho-subtotal]").textContent = money(totalPrice());
-    const checkout = drawer.querySelector("[data-carrinho-checkout]");
-    checkout.setAttribute("aria-disabled", cart.length ? "false" : "true");
-    checkout.classList.toggle("checkout-desativado", !cart.length);
-    if (!cart.length) {
-      items.innerHTML = '<div class="carrinho-vazio"><strong>Seu carrinho está vazio</strong><span>Escolha seu favorito no cardápio e ele aparece aqui.</span></div>';
-      return;
-    }
-    items.innerHTML = cart.map(item => `
-      <article class="carrinho-item">
-        <img src="${esc(item.image || "")}" alt="" loading="lazy">
-        <div>
-          <div class="carrinho-item-nome">${esc(item.name)}</div>
-          <div class="carrinho-item-preco">${money(item.price * item.qty)}</div>
-          <div class="carrinho-qtd">
-            <button type="button" data-carrinho-acao="menos" data-id="${esc(item.id)}" aria-label="Diminuir ${esc(item.name)}">−</button>
-            <span>${item.qty}</span>
-            <button type="button" data-carrinho-acao="mais" data-id="${esc(item.id)}" aria-label="Aumentar ${esc(item.name)}">+</button>
-          </div>
+function renderComplementSuggestions() {
+  return `<section class="carrinho-complementos" aria-label="Bebidas e molhos para complementar">
+    <div class="carrinho-complementos-cabecalho">
+      <span>COMBINA COM SEU PEDIDO</span>
+      <h3>Vai querer algo a mais?</h3>
+      <p>Escolha uma bebida ou um molho especial.</p>
+    </div>
+    <div class="carrinho-complementos-lista">
+      ${COMPLEMENTS.map(product => `<article class="carrinho-complemento">
+        <span class="carrinho-complemento-icone" aria-hidden="true">${product.icon}</span>
+        <div class="carrinho-complemento-info">
+          <strong>${esc(product.name)}</strong>
+          <small>${esc(product.description)}</small>
+          <span class="carrinho-complemento-preco">${money(product.price)}</span>
         </div>
-      </article>`).join("");
+        <button type="button" data-complemento-adicionar="${esc(product.id)}" aria-label="Adicionar ${esc(product.name)}">+</button>
+      </article>`).join("")}
+    </div>
+  </section>`;
+}
+
+function renderDrawer() {
+  const drawer = document.querySelector(".carrinho-gaveta");
+  if (!drawer) return;
+  const items = drawer.querySelector("[data-carrinho-itens]");
+  drawer.querySelector("[data-carrinho-total-qtd]").textContent = totalQty();
+  drawer.querySelector("[data-carrinho-subtotal]").textContent = money(totalPrice());
+  const checkout = drawer.querySelector("[data-carrinho-checkout]");
+  checkout.setAttribute("aria-disabled", cart.length ? "false" : "true");
+  checkout.classList.toggle("checkout-desativado", !cart.length);
+  if (!cart.length) {
+    items.innerHTML = '<div class="carrinho-vazio"><strong>Seu carrinho está vazio</strong><span>Escolha seu favorito no cardápio e ele aparece aqui.</span></div>';
+    return;
   }
+  const hasMainProduct = cart.some(item => item.kind !== "complemento");
+  items.innerHTML = cart.map(item => `
+    <article class="carrinho-item ${item.kind === "complemento" ? "carrinho-item-extra" : ""}">
+      ${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<div class="carrinho-item-icone" aria-hidden="true">${esc(item.icon || "🍽️")}</div>`}
+      <div>
+        <div class="carrinho-item-nome">${esc(item.name)}</div>
+        <div class="carrinho-item-preco">${money(item.price * item.qty)}</div>
+        <div class="carrinho-qtd">
+          <button type="button" data-carrinho-acao="menos" data-id="${esc(item.id)}" aria-label="Diminuir ${esc(item.name)}">−</button>
+          <span>${item.qty}</span>
+          <button type="button" data-carrinho-acao="mais" data-id="${esc(item.id)}" aria-label="Aumentar ${esc(item.name)}">+</button>
+        </div>
+      </div>
+    </article>`).join("") + (hasMainProduct ? newRenderComplementSuggestions() : "");
+}
+function addComplement(id) {
+  const product = COMPLEMENTS.find(item => item.id === id);
+  if (!product) return;
+  const existing = cart.find(item => item.id === product.id);
+  if (existing) existing.qty += 1;
+  else cart.push({ ...product, image: "", qty: 1 });
+  save();
+  updateCount();
+  renderDrawer();
+}
 
   function openDrawer() {
     setupDrawer();
@@ -102,13 +142,15 @@
     const id = name.toLocaleLowerCase("pt-BR").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-");
     const existing = cart.find(item => item.id === id);
     if (existing) existing.qty += 1;
-    else cart.push({ id, name, price, image: button.dataset.imagem || "", qty: 1 });
+    else cart.push({ id, name, price, image: button.dataset.imagem || "", qty: 1, kind: "principal" });
     save();
     updateCount();
     openDrawer();
   }
 
   document.addEventListener("click", event => {
+    const complement = event.target.closest("[data-complemento-adicionar]");
+    if (complement) { event.preventDefault(); addComplement(complement.dataset.complementoAdicionar); return; }
     const add = event.target.closest("[data-carrinho-adicionar]");
     if (add) { event.preventDefault(); addProduct(add); return; }
     if (event.target.closest("[data-carrinho-abrir]")) { event.preventDefault(); openDrawer(); return; }
@@ -126,6 +168,9 @@
         } else {
           item.qty -= 1;
         }
+      }
+      if (!cart.some(entry => entry.kind !== "complemento")) {
+        cart = cart.filter(entry => entry.kind !== "complemento");
       }
       save();
       updateCount();
