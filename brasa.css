@@ -803,6 +803,9 @@ a {
 }
 
 @media (max-width: 700px) {
+    .titulos3 h3 {
+        text-align: center;
+    }
     .divsection4 h2, h1 {
         text-align: center;
     }
