@@ -84,6 +84,18 @@ mysqli_close($brasa);
             --laranja: #e74721;
             --laranja-claro: #ff9c28;
             --borda: rgba(244, 234, 215, .12);
+            --detalhes: rgba(0, 0, 0, .18);
+            --sombra: rgba(0, 0, 0, .38);
+        }
+        body[data-tema="claro"] {
+            color-scheme: light;
+            --fundo: #f4ead7;
+            --card: #fffaf1;
+            --texto: #29231e;
+            --suave: #75685b;
+            --borda: rgba(41, 35, 30, .14);
+            --detalhes: rgba(185, 170, 148, .16);
+            --sombra: rgba(68, 48, 30, .13);
         }
         * { box-sizing: border-box; }
         body {
@@ -105,7 +117,8 @@ mysqli_close($brasa);
             background: linear-gradient(145deg, #211e1a, var(--card));
             border: 1px solid var(--borda);
             border-radius: 22px;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, .38);
+            box-shadow: 0 24px 80px var(--sombra);
+            transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
         }
         .marca {
             margin: 0 0 28px;
@@ -143,7 +156,7 @@ mysqli_close($brasa);
             margin: 0 0 28px;
             padding: 20px;
             text-align: left;
-            background: rgba(0, 0, 0, .18);
+            background: var(--detalhes);
             border: 1px solid var(--borda);
             border-radius: 14px;
         }
@@ -187,18 +200,38 @@ mysqli_close($brasa);
             transition: transform .2s ease, filter .2s ease;
         }
         .botao:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .alternar-tema {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--borda);
+            border-radius: 50%;
+            background: var(--card);
+            color: var(--texto);
+            font-size: 21px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: transform .2s ease, background .25s ease, color .25s ease;
+        }
+        .alternar-tema:hover { transform: translateY(-2px); }
         .aviso-erro .icone {
             border-color: rgba(231, 71, 33, .35);
             background: rgba(231, 71, 33, .12);
             color: var(--laranja-claro);
         }
         @media (max-width: 480px) {
+            .alternar-tema { top: 12px; right: 12px; width: 42px; height: 42px; }
             .confirmacao { padding: 34px 22px; }
             .detalhes { padding: 16px; }
         }
     </style>
 </head>
 <body>
+    <button class="alternar-tema" type="button" id="alternar-tema" aria-label="Ativar modo claro" title="Ativar modo claro">☾</button>
     <main class="confirmacao <?php echo empty($sucesso) ? "aviso-erro" : ""; ?>">
         <p class="marca">Sabor &amp; Brasa</p>
 
@@ -240,5 +273,35 @@ mysqli_close($brasa);
             <a class="botao" href="pagamento.html">Voltar ao pagamento</a>
         <?php endif; ?>
     </main>
+
+    <script>
+        const botaoTema = document.getElementById("alternar-tema");
+        const temaSalvo = localStorage.getItem("brasa-tema-confirmacao");
+
+        if (temaSalvo === "claro") {
+            document.body.setAttribute("data-tema", "claro");
+            botaoTema.textContent = "☀";
+            botaoTema.setAttribute("aria-label", "Ativar modo escuro");
+            botaoTema.title = "Ativar modo escuro";
+        }
+
+        botaoTema.addEventListener("click", () => {
+            const modoClaro = document.body.getAttribute("data-tema") !== "claro";
+
+            if (modoClaro) {
+                document.body.setAttribute("data-tema", "claro");
+                botaoTema.textContent = "☀";
+                botaoTema.setAttribute("aria-label", "Ativar modo escuro");
+                botaoTema.title = "Ativar modo escuro";
+                localStorage.setItem("brasa-tema-confirmacao", "claro");
+            } else {
+                document.body.removeAttribute("data-tema");
+                botaoTema.textContent = "☾";
+                botaoTema.setAttribute("aria-label", "Ativar modo claro");
+                botaoTema.title = "Ativar modo claro";
+                localStorage.setItem("brasa-tema-confirmacao", "escuro");
+            }
+        });
+    </script>
 </body>
 </html>
