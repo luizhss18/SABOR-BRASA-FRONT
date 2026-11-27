@@ -1,8 +1,8 @@
 <?php 
-$servidor = "sql210.infinityfree.com";
-$usuario = "if0_43456477";
-$senha_bd = "1234567Vidas";
-$banco = "if0_43456477_brasa";
+$servidor = "localhost";
+$usuario = "root";
+$senha_bd = "";
+$banco = "brasa";
 
 $brasa = mysqli_connect($servidor, $usuario, $senha_bd, $banco);
 
@@ -17,13 +17,11 @@ $endereco = $_POST['endereco'];
 $bairro = $_POST['bairro'];
 $cep = $_POST['cep'];
 $tipo_pagamento = $_POST['tipo_pagamento'];
-$numero_cartao = $_POST['numero_cartao'];
-$validade = $_POST['validade'];
-$cvv = $_POST['cvv'];
 
 
-$sql = "insert into pedido (nome, email, telefone, endereco, bairro, cep, tipo_pagamento, numero_cartao, validade, cvv)
-values ('$nome', '$email', '$telefone', '$endereco', '$bairro', '$cep', '$tipo_pagamento', '$numero_cartao', '$validade', '$cvv')";
+
+$sql = "insert into pedido (nome, email, telefone, endereco, bairro, cep, tipo_pagamento)
+values ('$nome', '$email', '$telefone', '$endereco', '$bairro', '$cep', '$tipo_pagamento')";
 
 if(mysqli_query($brasa, $sql)){
     echo "<h3> Pedido realizado com sucesso!</h3>";
