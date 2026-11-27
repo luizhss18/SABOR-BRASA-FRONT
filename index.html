@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Brasa Burguer</title>
     <link rel="stylesheet" href="brasa.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -15,26 +15,23 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            
-            <nav class="nave">
-                <div class="logo">
-                    <a href="#"><img src="img/logo.png" alt="logo"></a>
-                </div>
-                <ul class="list">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#cardapio">Cardápio</a></li>
-                    <li><a href="#sobre nos">Sobre nós</a></li>
-                    <li><a href="#combos">Combos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="pedido">
-                    <a href="#cardapio">Peça Agora</a>
-                    <a href="pagamento.html">🛒Ver Pedido</a>
-                </div>
-        </div>
-            </nav>
-        
+        <nav class="nave">
+            <div class="logo">
+                <a href="#"><img src="img/logo.WebP" alt="Logo Brasa Burguer"></a>
+            </div>
+            <ul class="list">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#sobre-nos">Sobre nós</a></li>
+                <li><a href="#combos">Combos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="pedido">
+                <button type="button" class="botao-tema" data-tema-toggle aria-label="Ativar modo claro" title="Ativar modo claro"><span data-tema-icone aria-hidden="true">☾</span></button>
+                <a href="#cardapio">Peça Agora</a>
+                <a href="#cardapio" class="abrir-carrinho" data-carrinho-abrir>🛒 Carrinho <span class="carrinho-contador" data-carrinho-contador>0</span></a>
+            </div>
+        </nav>
     </header>
 
     <main>
@@ -52,98 +49,98 @@
                         <a class="btn peca" href="#cardapio">
                                 Ver cardápio👇
                         </a>
-                        <a class="btn carrinho" href="#cardapio">
-                                Fazer pedido🛒
+                        <a class="btn carrinho" href="#cardapio" data-carrinho-abrir>
+                                Fazer pedido 🛒
                         </a>
                     </div>
                 </div>
             
         </section>
-    </main>
-
-        <section id="cardapio">  <!-- section do cardapio >>>>>Nossa hamburgueres ou PRINCIPAIS hamburgueres<<<<< -->
+        <section id="cardapio">
             <div class="titulos1">
                 <h2>Escolha seu favorito</h2>
                 <h1>Nossas melhores opções</h1>
-            </div> 
-                <div class="div-card">  <!-- div do cardapio -->
-                    <article class="ind-card">  <!-- cards do burguer-->
-                        <img src="https://images.pexels.com/photos/1556688/pexels-photo-1556688.jpeg?auto=compress&cs=tinysrgb&w=800" alt="hamburguer de pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.">
+            </div>
+
+            <div class="cardapio-carrossel" data-cardapio-carrossel>
+                <button class="cardapio-seta cardapio-anterior" type="button" data-cardapio-anterior aria-label="Ver hambúrgueres anteriores">‹</button>
+                <div class="div-card" data-cardapio-trilho>
+                    <article class="ind-card">
+                        <img src="https://images.pexels.com/photos/1556688/pexels-photo-1556688.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brasa Classic com cheddar, cebola caramelizada e molho especial." loading="lazy">
                         <div class="conteudocard um">
-                            <h2>
-                                Brasa Classic
-                            </h2>
-                            <p>
-                                Pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.
-                            </p>
-                            <div class="addburguer">
-                                <p>R$29,90</p>
-                                <button> 
-                                    <a href="pagamento.html"> + </a> 
-                                </button>
-                            </div>
-                        </div>                      
+                            <h2>Brasa Classic</h2>
+                            <p>Pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.</p>
+                            <div class="addburguer"><p>R$29,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Classic" data-preco="29.90" data-imagem="https://images.pexels.com/photos/1556688/pexels-photo-1556688.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa Classic ao carrinho">+</button></div>
+                        </div>
                     </article>
-
-                    <article class="ind-card">  <!-- cards do burguer-->
-                        <img src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800" alt="hamburguer de pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.">
+                    <article class="ind-card">
+                        <img src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brasa Furioso com bacon, picles e molho picante." loading="lazy">
                         <div class="conteudocard dois">
-                            <h2>
-                                Brasa Furioso
-                            </h2>
-                            <p>
-                                Pão de brioche, blend bovino 140g, queijo prato, bacon, picles, cebola roxa, molho picante, barbecue e salada.
-                            </p>
-                            <div class="addburguer">
-                                <p>R$36,90</p>
-                                <button> 
-                                    <a href="pagamento.html"> + </a> 
-                                </button>
-                            </div>
+                            <h2>Brasa Furioso</h2>
+                            <p>Blend bovino 140g, queijo prato, bacon, picles, cebola roxa, molho picante e barbecue.</p>
+                            <div class="addburguer"><p>R$36,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Furioso" data-preco="36.90" data-imagem="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa Furioso ao carrinho">+</button></div>
                         </div>
                     </article>
-
-                    <article class="ind-card">  <!-- cards do burguer-->
-                        <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=800" alt="hamburguer de pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.">
+                    <article class="ind-card">
+                        <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brasa King com dois blends, cheddar e bacon." loading="lazy">
                         <div class="conteudocard tres">
-                            <h2>
-                                Brasa King
-                            </h2>
-                            <p>
-                                Pão de brioche, 2 blend bovino 120g,, queijo cheddar, picles, cebola caramelizada, bacon, maionese de bacon.                           
-                             </p>
+                            <h2>Brasa King</h2>
+                            <p>Dois blends bovinos 120g, cheddar, picles, cebola caramelizada, bacon e maionese de bacon.</p>
+                            <div class="addburguer"><p>R$32,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa King" data-preco="32.90" data-imagem="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa King ao carrinho">+</button></div>
+                        </div>
+                    </article>
+                    <article class="ind-card">
+                        <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Double Brasa com cheddar duplo e bacon." loading="lazy">
+                        <div class="conteudocard quatro">
+                            <h2>Double Brasa</h2>
+                            <p>Pão brioche, duas carnes, cheddar duplo, bacon crocante e molho especial da casa.</p>
+                            <div class="addburguer"><p>R$25,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Double Brasa" data-preco="25.90" data-imagem="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Double Brasa ao carrinho">+</button></div>
+                        </div>
+                    </article>
+                    <article class="ind-card">
+                        <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brasa BBQ com barbecue e cebola crispy." loading="lazy">
+                        <div class="conteudocard">
+                            <h2>Brasa BBQ</h2>
+                            <p>Blend bovino 160g, queijo cheddar, barbecue defumado, cebola crispy e pão brioche.</p>
+                            <div class="addburguer"><p>R$33,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa BBQ" data-preco="33.90" data-imagem="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" aria-label="Adicionar Brasa BBQ ao carrinho">+</button></div>
+                        </div>
+                    </article>
+                    <article class="ind-card">
+                        <img src="img/2burguer.WebP" alt="Brasa Melt com queijo derretido e molho da casa." loading="lazy">
+                        <div class="conteudocard">
+                            <h2>Brasa Melt</h2>
+                            <p>Carne artesanal 150g, queijo prato derretido, cebola na manteiga e molho cremoso.</p>
                             <div class="addburguer">
-                                <p>R$32,90</p>
-                                <button> 
-                                    <a href="pagamento.html"> + </a> 
+                                <p>R$31,90</p>
+                                <button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Melt" data-preco="31.90" aria-label="Adicionar Brasa Melt ao carrinho" data-imagem="img/2burguer.WebP">+         
                                 </button>
                             </div>
                         </div>
                     </article>
-
-                    <article class="ind-card">  <!-- cards do burguer-->
-                        <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=400" alt="hamburguer de pão brioche, hambúrguer artesanal 160g, queijo cheddar, cebola caramelizada e molho especial.">
-                        <div class="conteudocard quatro">
-                            <h2>
-                               Double Brasa
-                            </h2>
-                            <p>
-                                Pão de Brioche, 2 Carnes, cheddar duplo, 2 fatias generosas de bacon e molho especial da casa.
-                            </p>
-                            <div class="addburguer">
-                                <p>R$25,90</p>
-                                <button> 
-                                    <a href="pagamento.html"> + </a> 
-                                </button>
+                    <article class="ind-card">
+                        <img src="img/4burguer.WebP" alt="Brasa Crispy com frango crocante e molho especial." loading="lazy">
+                        <div class="conteudocard">
+                            <h2>Brasa Crispy</h2>
+                            <p>Frango empanado crocante, queijo, alface fresca e maionese temperada no pão brioche.</p>
+                            <div class="addburguer"><p>R$28,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Crispy" data-preco="28.90"  aria-label="Adicionar Brasa Crispy ao carrinho" data-imagem="img/3burguer.WebP">+</button>
                             </div>
+                        </div>
+                    </article>
+                    <article class="ind-card">
+                        <img src="img/3burguer.WebP" alt="Brasa Veggie com hambúrguer vegetal e salada." loading="lazy">
+                        <div class="conteudocard">
+                            <h2>Brasa Veggie</h2>
+                            <p>Hambúrguer vegetal, queijo, tomate, folhas frescas e molho especial em pão brioche.</p>
+                            <div class="addburguer"><p>R$29,90</p><button class="adicionar-pedido" type="button" data-carrinho-adicionar data-produto="Brasa Veggie" data-preco="29.90" aria-label="Adicionar Brasa Veggie ao carrinho" data-imagem="img/3burguer.WebP">+</button></div>
                         </div>
                     </article>
                 </div>
+                <button class="cardapio-seta cardapio-proxima" type="button" data-cardapio-proxima aria-label="Ver próximos hambúrgueres">›</button>
+            </div>
+            <div class="cardapio-paginacao" data-cardapio-paginacao aria-label="Paginação do cardápio"></div>
         </section>
 
-        <br>
-
-        <section> <!--section do "Por que Brasa Burger?"-->
+        <section class="diferenciais"> <!--section do "Por que Brasa Burger?"-->
             <div>
                 <div class="titulos2">
                     <p> Por que escolher a gente </p>
@@ -170,54 +167,47 @@
             </div>
         </section>
 
-        <br>
-
         <section id="combos" class="section3"> <!--melhores opçoes"-->
             <div class="titulos3">
                 <h3>Mais sabor, melhor escolha</h3>
                 <h1>Combos que valem cada mordida</h1>
             </div>
-            
-            <br>
-            
+
             <div class="combos">
                 <article class="combo"> <!-- melhores hamburguers ou combo -->
-                    <img src="https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg?auto=compress&cs=tinysrgb&w=800" alt="combo hamburguer">
+                    <img src="img/combo.WebP" alt="combo hamburguer">
                     <div class="cardconteudo">
                         <h2>FAVORITO DA CASA</h2>
                         <h3>Combo Brasa</h3>
                         <p class="burguer"> 2 Hambúrguer + Batata Grande + Coca-Cola ou Guaraná 2L </p>
-                        <p class="ppreço">R$ 69,90</p>
+                        <p class="ppreço">R$ 69,90</p><button class="adicionar-pedido adicionar-combo" type="button" data-carrinho-adicionar data-produto="Combo Brasa Família" data-preco="69.90" data-imagem="https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800">Adicionar ao carrinho +</button>
                     </div>
                 </article>
 
                 <article class="combo"> <!-- melhores hamburguers ou combo -->
-                    <img src="https://images.pexels.com/photos/3219547/pexels-photo-3219547.jpeg?auto=compress&cs=tinysrgb&w=800" alt="combo hamburguer">
+                    <img src="img/2combo.WebP" alt="combo hamburguer">
                     <div class="cardconteudo">
                         <h2>MELHOR PREÇO</h2>
                         <h3>Combo Brasa</h3>
                         <p class="burguer">1 Hambúrguer + Batata Média + Kuat 1,5L ou Guarapan 2L</p>
-                        <p class="ppreço">R$ 39,90</p>
+                        <p class="ppreço">R$ 39,90</p><button class="adicionar-pedido adicionar-combo" type="button" data-carrinho-adicionar data-produto="Combo Brasa Econômico" data-preco="39.90" data-imagem="https://images.pexels.com/photos/3219547/pexels-photo-3219547.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800">Adicionar ao carrinho +</button>
                     </div>
                 </article>
                 
             </div>
         </section> 
 
-        <section id="sobre nos" class="section4"> <!-- Nossa história (gpt/canvaIA) ou quem somos(atelie burguer) -->
+        <section id="sobre-nos" class="section4"> <!-- Nossa história (gpt/canvaIA) ou quem somos(atelie burguer) -->
             <div class="divsection4">
                 <div class="historia">
                     <h2>Sobre nós</h2>
                     <h1>Quem somos</h1>
-                    <p> No Brasa Burguer, acreditamos que um hambúrguer vai muito além de um simples lanche. Nosso objetivo é criar experiências memoráveis através de hambúrgueres artesanais, preparados com ingredientes frescos e de alta qualidade.
-
-                        Cada hambúrguer é cuidadosamente montado como uma peça exclusiva, pensada para encantar o paladar e conquistar os corações dos nossos clientes.
-                        
-                        Com um ambiente acolhedor e cheio de personalidade, nossa missão é transformar cada visita em um momento único, proporcionando não apenas uma refeição deliciosa, mas também um espaço onde você possa se sentir à vontade.
-                    </p>
+                    <p>No Brasa Burguer, acreditamos que um hambúrguer vai muito além de um simples lanche. Nosso objetivo é criar experiências memoráveis através de hambúrgueres artesanais, preparados com ingredientes frescos e de alta qualidade.</p>
+                    <p>Cada hambúrguer é cuidadosamente montado como uma peça exclusiva, pensada para encantar o paladar e conquistar os corações dos nossos clientes.</p>
+                    <p>Com um ambiente acolhedor e cheio de personalidade, nossa missão é transformar cada visita em um momento único, proporcionando não apenas uma refeição deliciosa, mas também um espaço onde você possa se sentir à vontade.</p>
                 </div>
                 <div class="cozinheiro">
-                    <img src="img/cozinheiro.png" alt="cozinheiro cozinhando">
+                    <img src="img/cozinheiro.WebP" alt="cozinheiro cozinhando" loading="lazy">
                 </div>
             </div>
         </section>
@@ -229,19 +219,24 @@
                     <h2>Siga a Brasa Burger</h2>
                     <p>@brasaburguer</p>     
                 </div>                     
-                        <a href="https://www.instagram.com/brasaburguer/" target="_blank">VER NO INSTAGRAM</a>      
+                        <a href="https://www.instagram.com/brasaburguer/" target="_blank" rel="noopener noreferrer">VER NO INSTAGRAM</a>      
                   
             </div>
-            <div class="fotos">
-                <!--fotos-->
-                <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=400" alt="hamburguer">
-                <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=400" alt="batata">
-                <img src="https://images.pexels.com/photos/1269025/pexels-photo-1269025.jpeg?auto=compress&cs=tinysrgb&w=400" alt="pessoas bebendo">
-                <img src="https://images.pexels.com/photos/14935009/pexels-photo-14935009.jpeg" alt="camadas do hambuguer">
-                <img src="https://images.pexels.com/photos/2491273/pexels-photo-2491273.jpeg?auto=compress&cs=tinysrgb&w=400" alt="carne na brasa">
-                <img src="https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=400" alt="coca-cola">
+            <div class="galeria-carrossel" data-galeria-carrossel>
+                <button class="galeria-seta galeria-anterior" type="button" data-galeria-anterior aria-label="Ver imagens anteriores"></button>
+                <div class="fotos" data-galeria-trilho>
+                    <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hambúrguer artesanal Brasa Burger" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Porção de batatas fritas" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1269025/pexels-photo-1269025.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Amigos aproveitando uma refeição" loading="lazy">
+                    <img src="https://images.pexels.com/photos/14935009/pexels-photo-14935009.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Camadas de um hambúrguer artesanal" loading="lazy">
+                    <img src="https://images.pexels.com/photos/2491273/pexels-photo-2491273.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Carne sendo preparada na brasa" loading="lazy">
+                    <img src="https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bebida gelada para acompanhar o hambúrguer" loading="lazy">
+                </div>
+                <button class="galeria-seta galeria-proxima" type="button" data-galeria-proxima aria-label="Ver próximas imagens"></button>
+                <div class="galeria-paginacao" data-galeria-paginacao aria-label="Selecionar imagem" role="group"></div>
             </div>
         </section>
+    </main>
 
             <!--Contato-->
         <footer class="site-footer">
@@ -270,7 +265,7 @@
                         </div>
                     </div>
                     <div class="mapa">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.679121218829!2d-44.041103713841416!3d-19.93792229071652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa695ea5dd82e1d%3A0xca75cdd5bbcad1d6!2sSenac%20em%20Contagem!5e0!3m2!1spt-BR!2sbr!4v1790896279204!5m2!1spt-BR!2sbr" title="Localização da Brasa Burger no Google Maps" width="100%" height="100%" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.679121218829!2d-44.041103713841416!3d-19.93792229071652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa695ea5dd82e1d%3A0xca75cdd5bbcad1d6!2sSenac%20em%20Contagem!5e0!3m2!1spt-BR!2sbr!4v1790896279204!5m2!1spt-BR!2sbr" title="Localização da Brasa Burger no Google Maps" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
                         </iframe>
                     </div>
                 </div>
@@ -279,7 +274,8 @@
                 <a class="footer-brand" href="#inicio">BRASA <span>BURGER</span></a>
                 <p>Feito com carinho e muito sabor na brasa.</p>
                 <a class="footer-top" href="#inicio">Voltar ao topo ↑</a>
-            </div>
+            </div>        
         </footer>
+    <script src="carrinho.js" defer></script>
 </body>
 </html>

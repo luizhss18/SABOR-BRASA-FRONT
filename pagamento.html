@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Finalizar pedido | Brasa Burger</title>
     <link rel="stylesheet" href="brasa.css">
 </head>
 <body>
     <!-- SEÇÃO DE PAGAMENTO -->
 <section class="pagamento-section">
     <div class="pagamento-container">
+        <div class="pagamento-tema"><button type="button" class="botao-tema" data-tema-toggle aria-label="Ativar modo claro" title="Ativar modo claro"><span data-tema-icone aria-hidden="true">☾</span></button></div>
         
         <div class="titulos-pagamento">
             <h2>Quase lá!</h2>
@@ -17,7 +18,10 @@
         </div>
 
         <!-- Formulário de Pagamento -->
+        <div class="resumo-carrinho-pagamento" data-resumo-carrinho aria-live="polite"></div>
         <form action="brasa.php" method="POST" class="form-pagamento">
+            <input type="hidden" name="itens_pedido" value="">
+            <input type="hidden" name="total_pedido" value="0.00">
             
             <!-- Dados Pessoais -->
             <fieldset>
@@ -84,5 +88,6 @@
         </form>
     </div>
 </section>
+    <script src="carrinho.js" defer></script>
 </body>
 </html>
